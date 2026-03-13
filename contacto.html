@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Higiene - Contactos em Cabinda</title>
+
+    <!-- Meta tags para SEO -->
+    <meta name="description"
+        content="Entre em contato com a Total Higiene em Cabinda. Telefones, WhatsApp, e-mail e localização. Agende uma avaliação gratuita para higienização profissional a seco.">
+    <meta name="keywords" content="contacto, telefone, WhatsApp, e-mail, localização, Cabinda, Angola, higienização">
+    <meta name="author" content="Total Higiene">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Leaflet CSS para mapas -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- Nossos arquivos CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- CSS específico para página de contacto -->
+    <style>
+        /* Hero da página de contacto */
+        .contact-hero {
+            background: linear-gradient(135deg, var(--azul-escuro), var(--azul-principal));
+            padding: 60px 0 80px;
+            text-align: center;
+            color: var(--branco);
+            margin-top: calc(var(--header-height) * -1);
+            padding-top: calc(var(--header-height) + 60px);
+        }
+
+        .contact-hero__title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--branco);
+        }
+
+        .contact-hero__title span {
+            color: var(--amarelo);
+        }
+
+        .contact-hero__description {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Cards de contato rápido */
+        .contact-cards {
+            padding: 60px 0;
+            background: var(--branco);
+            margin-top: -40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-cards__grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .contact-card {
+            background: var(--branco);
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--sombra-media);
+            transition: var(--transition-normal);
+            border: 1px solid var(--cinza-medio);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--sombra-forte);
+            border-color: var(--amarelo);
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--azul-claro);
+        }
+
+        .contact-card:nth-child(2)::before {
+            background: var(--amarelo);
+        }
+
+        .contact-card:nth-child(3)::before {
+            background: var(--whatsapp);
+        }
+
+        .contact-card:nth-child(4)::before {
+            background: var(--azul-escuro);
+        }
+
+        .contact-card__icon {
+            width: 70px;
+            height: 70px;
+            background: var(--cinza-claro);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: var(--azul-claro);
+            transition: var(--transition-normal);
+        }
+
+        .contact-card:hover .contact-card__icon {
+            background: var(--azul-claro);
+            color: var(--branco);
+            transform: rotateY(180deg);
+        }
+
+        .contact-card:nth-child(2):hover .contact-card__icon {
+            background: var(--amarelo);
+            color: var(--azul-escuro);
+        }
+
+        .contact-card:nth-child(3):hover .contact-card__icon {
+            background: var(--whatsapp);
+            color: var(--branco);
+        }
+
+        .contact-card:nth-child(4):hover .contact-card__icon {
+            background: var(--azul-escuro);
+            color: var(--branco);
+        }
+
+        .contact-card__title {
+            font-size: 1.3rem;
+            color: var(--azul-escuro);
+            margin-bottom: 10px;
+        }
+
+        .contact-card__value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--azul-claro);
+            margin-bottom: 5px;
+        }
+
+        .contact-card__label {
+            color: var(--texto-claro);
+            font-size: 0.9rem;
+        }
+
+        .contact-card__link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--azul-claro);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition-normal);
+        }
+
+        .contact-card__link:hover {
+            color: var(--amarelo);
+            transform: translateX(5px);
+        }
+
+        /* Seção principal de contato */
+        .contact-main {
+            padding: 60px 0;
+            background: var(--cinza-claro);
+        }
+
+        .contact-main__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        /* Informações de contato */
+        .contact-info {
+            background: var(--branco);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: var(--sombra-media);
+        }
+
+        .contact-info__title {
+            font-size: 2rem;
+            color: var(--azul-escuro);
+            margin-bottom: 15px;
+        }
+
+        .contact-info__title span {
+            color: var(--amarelo);
+        }
+
+        .contact-info__text {
+            color: var(--texto-claro);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .contact-info__details {
+            margin-bottom: 30px;
+        }
+
+        .contact-info__item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding: 15px;
+            background: var(--cinza-claro);
+            border-radius: 15px;
+            transition: var(--transition-normal);
+        }
+
+        .contact-info__item:hover {
+            background: var(--azul-claro);
+            transform: translateX(5px);
+        }
+
+        .contact-info__item:hover .contact-info__item-icon,
+        .contact-info__item:hover .contact-info__item-title,
+        .contact-info__item:hover .contact-info__item-detail,
+        .contact-info__item:hover .contact-info__item-detail a {
+            color: var(--branco);
+        }
+
+        .contact-info__item-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--branco);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--azul-claro);
+            font-size: 1.3rem;
+            transition: var(--transition-normal);
+        }
+
+        .contact-info__item:hover .contact-info__item-icon {
+            background: var(--amarelo);
+            color: var(--azul-escuro);
+        }
+
+        .contact-info__item-content {
+            flex: 1;
+        }
+
+        .contact-info__item-title {
+            font-size: 1.1rem;
+            color: var(--azul-escuro);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .contact-info__item-detail {
+            color: var(--texto-claro);
+            line-height: 1.5;
+        }
+
+        .contact-info__item-detail a {
+            color: var(--texto-claro);
+            text-decoration: none;
+            transition: var(--transition-normal);
+        }
+
+        .contact-info__item-detail a:hover {
+            color: var(--amarelo);
+        }
+
+        .contact-info__social {
+            margin-top: 30px;
+        }
+
+        .contact-info__social-title {
+            font-size: 1.2rem;
+            color: var(--azul-escuro);
+            margin-bottom: 15px;
+        }
+
+        .contact-info__social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .contact-info__social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--cinza-claro);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--azul-escuro);
+            font-size: 1.5rem;
+            transition: var(--transition-normal);
+        }
+
+        .contact-info__social-link:hover {
+            background: var(--amarelo);
+            color: var(--azul-escuro);
+            transform: translateY(-5px);
+        }
+
+        /* Formulário de contato */
+        .contact-form {
+            background: var(--branco);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: var(--sombra-media);
+        }
+
+        .contact-form__title {
+            font-size: 2rem;
+            color: var(--azul-escuro);
+            margin-bottom: 10px;
+        }
+
+        .contact-form__title span {
+            color: var(--amarelo);
+        }
+
+        .contact-form__text {
+            color: var(--texto-claro);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--cinza-medio);
+            border-radius: 15px;
+            font-family: var(--fonte-texto);
+            font-size: 1rem;
+            transition: var(--transition-normal);
+            background: var(--cinza-claro);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--azul-claro);
+            background: var(--branco);
+            box-shadow: 0 0 0 3px rgba(44, 92, 197, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        select.form-control {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235A6B7C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+            background-size: 16px;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .form-checkbox input {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .form-checkbox label {
+            color: var(--texto-claro);
+            font-size: 0.95rem;
+        }
+
+        .form-checkbox a {
+            color: var(--azul-claro);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .form-checkbox a:hover {
+            color: var(--amarelo);
+        }
+
+        .btn-submit {
+            background: var(--azul-claro);
+            color: var(--branco);
+            border: none;
+            padding: 16px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-submit:hover {
+            background: var(--azul-hover);
+            transform: translateY(-3px);
+            box-shadow: var(--sombra-azul);
+        }
+
+        .btn-submit i {
+            transition: transform var(--transition-normal);
+        }
+
+        .btn-submit:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Mapa */
+        .map-section {
+            padding: 60px 0;
+            background: var(--branco);
+        }
+
+        .map-container {
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: var(--sombra-media);
+            height: 450px;
+        }
+
+        #map {
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+        }
+
+        /* Horário de funcionamento */
+        .hours-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--azul-escuro), var(--azul-principal));
+            color: var(--branco);
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .hours-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition-normal);
+        }
+
+        .hours-card:hover {
+            background: var(--amarelo);
+            color: var(--azul-escuro);
+            transform: translateY(-5px);
+        }
+
+        .hours-card:hover .hours-card__icon {
+            color: var(--azul-escuro);
+        }
+
+        .hours-card__icon {
+            font-size: 2.5rem;
+            color: var(--amarelo);
+            margin-bottom: 20px;
+            transition: var(--transition-normal);
+        }
+
+        .hours-card__title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .hours-card__time {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .hours-card__days {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background: var(--cinza-claro);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .faq-item {
+            background: var(--branco);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--sombra-suave);
+            transition: var(--transition-normal);
+        }
+
+        .faq-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--sombra-media);
+        }
+
+        .faq-item__question {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .faq-item__question i {
+            width: 40px;
+            height: 40px;
+            background: var(--azul-claro);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--branco);
+            font-size: 1.2rem;
+        }
+
+        .faq-item__question h3 {
+            font-size: 1.2rem;
+            color: var(--azul-escuro);
+            flex: 1;
+        }
+
+        .faq-item__answer {
+            color: var(--texto-claro);
+            line-height: 1.7;
+            padding-left: 55px;
+        }
+
+        /* CTA Final */
+        .cta-contact {
+            padding: 60px 0;
+            background: var(--branco);
+            text-align: center;
+        }
+
+        .cta-contact__content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-contact__title {
+            font-size: 2.2rem;
+            color: var(--azul-escuro);
+            margin-bottom: 20px;
+        }
+
+        .cta-contact__title span {
+            color: var(--amarelo);
+        }
+
+        .cta-contact__text {
+            color: var(--texto-claro);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .cta-contact__buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-whatsapp-large {
+            background: var(--whatsapp);
+            color: var(--branco);
+            padding: 18px 40px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition-normal);
+        }
+
+        .btn-whatsapp-large:hover {
+            background: var(--whatsapp-hover);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-call-large {
+            background: var(--azul-claro);
+            color: var(--branco);
+            padding: 18px 40px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition-normal);
+        }
+
+        .btn-call-large:hover {
+            background: var(--azul-hover);
+            transform: translateY(-5px);
+            box-shadow: var(--sombra-azul);
+        }
+
+        @media (max-width: 992px) {
+            .contact-cards__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-main__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hours-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-cards__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header__container">
+            <div class="header__logo">
+                <a href="index.html">
+                    <img src="images/totalHigiene.png" alt="Total Higiene Logo" class="header__logo-img">
+                </a>
+            </div>
+
+            <nav class="header__nav">
+                <ul class="header__menu">
+                    <li class="header__menu-item"><a href="index.html" class="header__menu-link">Início</a></li>
+                    <li class="header__menu-item"><a href="servicos.html" class="header__menu-link active">Serviços</a></li>
+                    <li class="header__menu-item"><a href="sobre.html" class="header__menu-link">Sobre Nós</a></li>
+                    <li class="header__menu-item"><a href="galeria.html" class="header__menu-link">Galeria</a></li>
+                    <li class="header__menu-item"><a href="contacto.html" class="header__menu-link">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div class="header__social">
+                <a href="https://www.instagram.com/totalhigiene_cabinda" target="_blank" class="header__social-link"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1CXgDH3zJT" target="_blank" class="header__social-link"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@total.higiene" target="_blank" class="header__social-link"><i
+                        class="fab fa-tiktok"></i></a>
+            </div>
+
+            <button class="header__mobile-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu__header">
+            <img src="images/totalHigiene.png" alt="Total Higiene" class="mobile-menu__logo">
+            <button class="mobile-menu__close" id="close-menu-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <ul class="mobile-menu__list">
+            <li class="mobile-menu__item"><a href="index.html" class="mobile-menu__link">Início</a></li>
+            <li class="mobile-menu__item"><a href="servicos.html" class="mobile-menu__link">Serviços</a></li>
+            <li class="mobile-menu__item"><a href="sobre.html" class="mobile-menu__link">Sobre Nós</a></li>
+            <li class="mobile-menu__item"><a href="galeria.html" class="mobile-menu__link">Galeria</a></li>
+            <li class="mobile-menu__item"><a href="contacto.html" class="mobile-menu__link">Contacto</a></li>
+        </ul>
+        <div class="mobile-menu__social">
+            <a href="https://www.instagram.com/totalhigiene_cabinda" target="_blank" class="mobile-menu__social-link"><i
+                    class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1CXgDH3zJT" target="_blank" class="mobile-menu__social-link"><i
+                    class="fab fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/@total.higiene" target="_blank" class="mobile-menu__social-link"><i
+                    class="fab fa-tiktok"></i></a>
+        </div>
+    </div>
+
+    <main>
+        <!-- HERO DA PÁGINA DE CONTACTO -->
+        <section class="contact-hero">
+            <div class="container">
+                <h1 class="contact-hero__title" data-aos="fade-up">
+                    FALE <span>CONNOSCO</span>
+                </h1>
+                <p class="contact-hero__description" data-aos="fade-up" data-aos-delay="100">
+                    Estamos prontos para atender você em Cabinda. Tire dúvidas, solicite orçamentos 
+                    ou agende uma avaliação gratuita.
+                </p>
+            </div>
+        </section>
+
+        <!-- CARDS DE CONTATO RÁPIDO -->
+        <section class="contact-cards">
+            <div class="container">
+                <div class="contact-cards__grid">
+                    <!-- Telefone -->
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="contact-card__icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3 class="contact-card__title">Telefone</h3>
+                        <div class="contact-card__value">945 543 959</div>
+                        <div class="contact-card__label">Ligue agora</div>
+                        <a href="tel:+244945543959" class="contact-card__link">
+                            Ligar <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- WhatsApp -->
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="contact-card__icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3 class="contact-card__title">WhatsApp</h3>
+                        <div class="contact-card__value">945 543 959</div>
+                        <div class="contact-card__label">Respondemos rápido</div>
+                        <a href="https://wa.me/244945543959" target="_blank" class="contact-card__link">
+                            Conversar <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- E-mail -->
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="contact-card__icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="contact-card__title">E-mail</h3>
+                        <div class="contact-card__value">totalhigiene</div>
+                        <div class="contact-card__label">@gmail.com</div>
+                        <a href="mailto:totalhigienecabinda@gmail.com" class="contact-card__link">
+                            Enviar e-mail <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Localização -->
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="contact-card__icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="contact-card__title">Localização</h3>
+                        <div class="contact-card__value">Cabinda</div>
+                        <div class="contact-card__label">Rua das Forças Armadas</div>
+                        <a href="#map" class="contact-card__link">
+                            Ver mapa <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO PRINCIPAL DE CONTATO -->
+        <section class="contact-main">
+            <div class="container">
+                <div class="contact-main__grid">
+                    <!-- Informações de Contato -->
+                    <div class="contact-info" data-aos="fade-right">
+                        <h2 class="contact-info__title">
+                            INFORMAÇÕES <span>DETALHADAS</span>
+                        </h2>
+                        <p class="contact-info__text">
+                            Estamos localizados em Cabinda e atendemos toda a província. 
+                            Entre em contato pelos canais abaixo ou envie uma mensagem pelo formulário.
+                        </p>
+
+                        <div class="contact-info__details">
+                            <!-- Telefone -->
+                            <div class="contact-info__item">
+                                <div class="contact-info__item-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="contact-info__item-content">
+                                    <h4 class="contact-info__item-title">Telefone</h4>
+                                    <div class="contact-info__item-detail">
+                                        <a href="tel:+244945543959">945 543 959</a><br>
+                                        <a href="tel:+244921128624">921 128 624</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- WhatsApp -->
+                            <div class="contact-info__item">
+                                <div class="contact-info__item-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div class="contact-info__item-content">
+                                    <h4 class="contact-info__item-title">WhatsApp</h4>
+                                    <div class="contact-info__item-detail">
+                                        <a href="https://wa.me/244945543959" target="_blank">945 543 959</a><br>
+                                        <a href="https://wa.me/244921128624" target="_blank">921 128 624</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- E-mail -->
+                            <div class="contact-info__item">
+                                <div class="contact-info__item-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-info__item-content">
+                                    <h4 class="contact-info__item-title">E-mail</h4>
+                                    <div class="contact-info__item-detail">
+                                        <a href="mailto:totalhigienecabinda@gmail.com">totalhigienecabinda@gmail.com</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Endereço -->
+                            <div class="contact-info__item">
+                                <div class="contact-info__item-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-info__item-content">
+                                    <h4 class="contact-info__item-title">Endereço</h4>
+                                    <div class="contact-info__item-detail">
+                                        Rua das Forças Armadas<br>
+                                        Cabinda, Angola
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Redes Sociais -->
+                        <div class="contact-info__social">
+                            <h4 class="contact-info__social-title">Siga-nos nas redes sociais</h4>
+                            <div class="contact-info__social-links">
+                                <a href="https://www.instagram.com/totalhigiene_cabinda" target="_blank" class="contact-info__social-link">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://www.facebook.com/share/1CXgDH3zJT" target="_blank" class="contact-info__social-link">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://www.tiktok.com/@total.higiene" target="_blank" class="contact-info__social-link">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="https://wa.me/244945543959" target="_blank" class="contact-info__social-link">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulário de Contato -->
+                    <div class="contact-form" data-aos="fade-left">
+                        <h2 class="contact-form__title">
+                            ENVIE <span>MENSAGEM</span>
+                        </h2>
+                        <p class="contact-form__text">
+                            Preencha o formulário abaixo que entraremos em contato o mais breve possível.
+                        </p>
+
+                        <form id="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Seu nome" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Seu telefone" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Seu e-mail (opcional)">
+                            </div>
+
+                            <div class="form-group">
+                                <select class="form-control" required>
+                                    <option value="">Selecione o serviço desejado</option>
+                                    <option value="sofa">Sofá / Poltrona</option>
+                                    <option value="colchao">Colchão</option>
+                                    <option value="tapete">Tapete / Carpete</option>
+                                    <option value="cortina">Cortina</option>
+                                    <option value="viatura">Interior de Viatura</option>
+                                    <option value="cadeira">Cadeira / Poltrona</option>
+                                    <option value="pos-obra">Limpeza Pós Obra</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Sua mensagem" rows="5" required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-checkbox">
+                                    <input type="checkbox" required>
+                                    <span>Li e aceito a <a href="#">política de privacidade</a></span>
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn-submit">
+                                Enviar Mensagem <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MAPA -->
+        <section class="map-section" id="map">
+            <div class="container">
+                <div class="map-container" data-aos="zoom-in">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HORÁRIO DE FUNCIONAMENTO -->
+        <section class="hours-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle" style="color: var(--amarelo);">Horário de Funcionamento</span>
+                    <h2 class="section-title" style="color: var(--branco);">Estamos disponíveis para você</h2>
+                    <div class="section-divider" style="background: var(--amarelo);"></div>
+                </div>
+
+                <div class="hours-grid">
+                    <div class="hours-card" data-aos="flip-left" data-aos-delay="100">
+                        <div class="hours-card__icon">
+                            <i class="fas fa-calendar-week"></i>
+                        </div>
+                        <h3 class="hours-card__title">Dias Úteis</h3>
+                        <div class="hours-card__time">8h - 17h30</div>
+                        <div class="hours-card__days">Segunda a Sexta</div>
+                    </div>
+
+                    <div class="hours-card" data-aos="flip-left" data-aos-delay="200">
+                        <div class="hours-card__icon">
+                            <i class="fas fa-calendar-day"></i>
+                        </div>
+                        <h3 class="hours-card__title">Sábado</h3>
+                        <div class="hours-card__time">8h - 12h30</div>
+                        <div class="hours-card__days">Atendimento reduzido</div>
+                    </div>
+
+                    <div class="hours-card" data-aos="flip-left" data-aos-delay="300">
+                        <div class="hours-card__icon">
+                            <i class="fas fa-calendar-times"></i>
+                        </div>
+                        <h3 class="hours-card__title">Domingo</h3>
+                        <div class="hours-card__time">Fechado</div>
+                        <div class="hours-card__days">Apenas emergências</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PERGUNTAS FREQUENTES -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle">Dúvidas comuns</span>
+                    <h2 class="section-title">Perguntas Frequentes</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="faq-grid">
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="faq-item__question">
+                            <i class="fas fa-question"></i>
+                            <h3>Quanto tempo demora a higienização?</h3>
+                        </div>
+                        <div class="faq-item__answer">
+                            O tempo varia conforme o serviço, mas em média 2 a 4 horas. A secagem é rápida, em até 2 horas.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
+                        <div class="faq-item__question">
+                            <i class="fas fa-question"></i>
+                            <h3>Preciso sair de casa durante o serviço?</h3>
+                        </div>
+                        <div class="faq-item__answer">
+                            Não é necessário. Nossa equipe trabalha de forma discreta e profissional, sem atrapalhar sua rotina.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="faq-item__question">
+                            <i class="fas fa-question"></i>
+                            <h3>Os produtos são seguros para crianças e animais?</h3>
+                        </div>
+                        <div class="faq-item__answer">
+                            Sim, utilizamos produtos biodegradáveis e hipoalergênicos, seguros para toda a família.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="250">
+                        <div class="faq-item__question">
+                            <i class="fas fa-question"></i>
+                            <h3>Fazem orçamento sem compromisso?</h3>
+                        </div>
+                        <div class="faq-item__answer">
+                            Sim! Oferecemos avaliação gratuita e orçamento sem compromisso para todos os serviços.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="faq-item__question">
+                            <i class="fas fa-question"></i>
+                            <h3>Atendem empresas em Cabinda?</h3>
+                        </div>
+                        <div class="faq-item__answer">
+                            Atendemos residências, escritórios, lojas, restaurantes e todos os tipos de comércio.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="350">
+                        <div class="faq-item__question">
+                            <i class="fas fa-question"></i>
+                            <h3>Como posso pagar?</h3>
+                        </div>
+                        <div class="faq-item__answer">
+                            Aceitamos dinheiro, transferência bancária e também a modalidade de pagamento fim do mês para clientes com vínculo trabalhista.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section class="cta-contact">
+            <div class="container">
+                <div class="cta-contact__content" data-aos="zoom-in">
+                    <h2 class="cta-contact__title">
+                        PRECISA DE <span>AJUDA</span>?
+                    </h2>
+                    <p class="cta-contact__text">
+                        Nossa equipa está pronta para atender você. Escolha a melhor forma de contato:
+                    </p>
+                    <div class="cta-contact__buttons">
+                        <a href="https://wa.me/244945543959" target="_blank" class="btn-whatsapp-large">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <a href="tel:+244945543959" class="btn-call-large">
+                            <i class="fas fa-phone-alt"></i> Ligar Agora
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__about">
+                    <img src="images/totalHigiene.png" alt="Total Higiene" class="footer__logo">
+                    <p class="footer__description">Especialistas em higienização profissional a seco em Cabinda.
+                        Devolvemos a pureza e o conforto aos seus espaços com tecnologia alemã.</p>
+                </div>
+
+                <div class="footer__links">
+                    <h4 class="footer__title">Links Rápidos</h4>
+                    <ul class="footer__menu">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="galeria.html">Galeria</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__services">
+                    <h4 class="footer__title">Serviços</h4>
+                    <ul class="footer__menu">
+                        <li><a href="servicos.html#sofas">Sofás & Poltronas</a></li>
+                        <li><a href="servicos.html#colchoes">Colchões</a></li>
+                        <li><a href="servicos.html#tapetes">Tapetes & Cortinas</a></li>
+                        <li><a href="servicos.html#viaturas">Interior de Viaturas</a></li>
+                        <li><a href="#">Limpeza Pós Obra</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__contact">
+                    <h4 class="footer__title">Contactos</h4>
+                    <ul class="footer__contact-list">
+                        <li><i class="fas fa-phone"></i> 945 543 959</li>
+                        <li><i class="fas fa-phone"></i> 921 128 624</li>
+                        <li><i class="fas fa-envelope"></i> totalhigienecabinda@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Rua Das Forças Armadas, Cabinda</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2026 Total Higiene. Todos os direitos reservados.</p>
+                <p class="footer__credits">"Na Total Higiene o serviço é sério"</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Flutuante -->
+    <a href="https://wa.me/244945543959" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        // Inicializar AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+            easing: 'ease-in-out'
+        });
+
+        // Inicializar Mapa (Leaflet)
+        document.addEventListener('DOMContentLoaded', function () {
+            // Coordenadas de Cabinda (aproximadamente)
+            const cabinda = [-5.55, 12.2]; // Latitude, Longitude
+
+            // Inicializar mapa
+            const map = L.map('map').setView(cabinda, 13);
+
+            // Adicionar tiles (OpenStreetMap)
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            // Adicionar marcador
+            const marker = L.marker(cabinda).addTo(map);
+            marker.bindPopup(`
+                <b>Total Higiene</b><br>
+                Rua das Forças Armadas<br>
+                Cabinda, Angola
+            `).openPopup();
+        });
+
+        // Formulário de contato
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('contact-form');
+            
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    
+                    const submitBtn = form.querySelector('.btn-submit');
+                    const originalText = submitBtn.innerHTML;
+                    
+                    submitBtn.innerHTML = 'Enviando... <i class="fas fa-spinner fa-spin"></i>';
+                    submitBtn.disabled = true;
+                    
+                    // Simular envio
+                    setTimeout(() => {
+                        alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+                        form.reset();
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    }, 2000);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

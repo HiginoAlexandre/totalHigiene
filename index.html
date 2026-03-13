@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Higiene - Higienização Profissional a Seco em Cabinda</title>
+    
+    <!-- Meta tags para SEO -->
+    <meta name="description" content="Total Higiene - Especialistas em higienização profissional a seco de sofás, colchões e interiores de viaturas em Cabinda. Tecnologia alemã, secagem rápida e eliminação de ácaros.">
+    <meta name="keywords" content="higienização, limpeza a seco, sofás, colchões, carros, Cabinda, Angola">
+    <meta name="author" content="Total Higiene">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Nossos arquivos CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header__container">
+            <div class="header__logo">
+                <img src="images/totalHigiene.png" alt="Total Higiene Logo" class="header__logo-img">
+            </div>
+            
+            <nav class="header__nav">
+                <ul class="header__menu">
+                    <li class="header__menu-item"><a href="index.html" class="header__menu-link">Início</a></li>
+                    <li class="header__menu-item"><a href="servicos.html" class="header__menu-link active">Serviços</a></li>
+                    <li class="header__menu-item"><a href="sobre.html" class="header__menu-link">Sobre Nós</a></li>
+                    <li class="header__menu-item"><a href="galeria.html" class="header__menu-link">Galeria</a></li>
+                    <li class="header__menu-item"><a href="contacto.html" class="header__menu-link">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header__social">
+                <a href="https://www.instagram.com/totalhigiene_cabinda" target="_blank" class="header__social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1CXgDH3zJT" target="_blank" class="header__social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@total.higiene" target="_blank" class="header__social-link"><i class="fab fa-tiktok"></i></a>
+            </div>
+            
+            <button class="header__mobile-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu__header">
+            <img src="images/totalHigiene.png" alt="Total Higiene" class="mobile-menu__logo">
+            <button class="mobile-menu__close" id="close-menu-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <ul class="mobile-menu__list">
+            <li class="mobile-menu__item"><a href="#home" class="mobile-menu__link">Início</a></li>
+            <li class="mobile-menu__item"><a href="servicos.html" class="mobile-menu__link">Serviços</a></li>
+            <li class="mobile-menu__item"><a href="sobre.html" class="mobile-menu__link">Sobre Nós</a></li>
+            <li class="mobile-menu__item"><a href="galeria.html" class="mobile-menu__link">Galeria</a></li>
+            <li class="mobile-menu__item"><a href="contacto.html" class="mobile-menu__link">Contacto</a></li>
+        </ul>
+        <div class="mobile-menu__social">
+            <a href="https://www.instagram.com/totalhigiene_cabinda" target="_blank" class="mobile-menu__social-link"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1CXgDH3zJT" target="_blank" class="mobile-menu__social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/@total.higiene" target="_blank" class="mobile-menu__social-link"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </div>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="home" class="hero">
+            <div class="hero__video-container">
+                <video class="hero__video" autoplay muted loop playsinline>
+                    <source src="videos/limpeza_sofa.mp4" type="video/mp4">
+                </video>
+                <div class="hero__image-fallback"></div>
+            </div>
+            
+            <div class="hero__overlay"></div>
+            
+            <div class="container hero__container">
+                <div class="hero__content" data-aos="fade-up" data-aos-duration="1000">
+                    <span class="hero__tagline">Total Higiene</span>
+                    <h1 class="hero__title">
+                        HIGIENIZAÇÃO PROFISSIONAL<br>
+                        <span class="hero__title-highlight">A SECO</span>
+                    </h1>
+                    <p class="hero__subtitle">em Cabinda</p>
+                    
+                    <div class="hero__dynamic-text">
+                        Especialistas em <span class="hero__dynamic-word" id="dynamic-word">Sofás</span>
+                    </div>
+                    
+                    <p class="hero__description">
+                        Tecnologia alemã. Secagem rápida. Eliminação de ácaros e bactérias.<br>
+                        Devolvemos a pureza e o conforto aos seus espaços.
+                    </p>
+                    
+                    <div class="hero__buttons">
+                        <a href="#servicos" class="btn btn--primary">
+                            Ver Serviços <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="https://wa.me/244945543959" target="_blank" class="btn btn--whatsapp">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                    
+                    <div class="hero__stats">
+                        <div class="hero__stat-item">
+                            <span class="hero__stat-number" data-target="500">0</span>
+                            <span class="hero__stat-label">Serviços Realizados</span>
+                        </div>
+                        <div class="hero__stat-item">
+                            <span class="hero__stat-number" data-target="99">0</span>
+                            <span class="hero__stat-label">% Ácaros Eliminados</span>
+                        </div>
+                        <div class="hero__stat-item">
+                            <span class="hero__stat-number" data-target="100">0</span>
+                            <span class="hero__stat-label">% Satisfação</span>
+                        </div>
+                        <div class="hero__stat-item">
+                            <span class="hero__stat-number" data-target="2">0</span>
+                            <span class="hero__stat-label">Horas Secagem</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIFERENCIAIS -->
+        <section class="diferenciais">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle">Por que escolher a</span>
+                    <h2 class="section-title">Total Higiene?</h2>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <div class="diferenciais__grid">
+                    <div class="diferenciais__card" data-aos="flip-left" data-aos-delay="100">
+                        <div class="diferenciais__icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <h3 class="diferenciais__title">Secagem Rápida</h3>
+                        <p class="diferenciais__text">Tecnologia a seco que permite a secagem completa em até 2 horas. Sem umidade residual, sem mofo.</p>
+                    </div>
+                    
+                    <div class="diferenciais__card" data-aos="flip-left" data-aos-delay="200">
+                        <div class="diferenciais__icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="diferenciais__title">Eliminação de Ácaros</h3>
+                        <p class="diferenciais__text">Eliminação de 99.9% dos ácaros, bactérias e alérgenos. Saúde e bem-estar para sua família.</p>
+                    </div>
+                    
+                    <div class="diferenciais__card" data-aos="flip-left" data-aos-delay="300">
+                        <div class="diferenciais__icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3 class="diferenciais__title">Tecnologia Alemã</h3>
+                        <p class="diferenciais__text">Equipamentos de última geração importados da Alemanha. Resultado profissional e duradouro.</p>
+                    </div>
+                    
+                    <div class="diferenciais__card" data-aos="flip-left" data-aos-delay="400">
+                        <div class="diferenciais__icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="diferenciais__title">Atendimento em Cabinda</h3>
+                        <p class="diferenciais__text">Buscamos e entregamos seu estofado em toda Cabinda. Comodidade e praticidade para você.</p>
+                    </div>
+                    
+                    <div class="diferenciais__card" data-aos="flip-left" data-aos-delay="500">
+                        <div class="diferenciais__icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3 class="diferenciais__title">Profissionais Qualificados</h3>
+                        <p class="diferenciais__text">Equipe treinada e certificada. Atendimento personalizado para cada tipo de estofado.</p>
+                    </div>
+                    
+                    <div class="diferenciais__card" data-aos="flip-left" data-aos-delay="600">
+                        <div class="diferenciais__icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3 class="diferenciais__title">Garantia Total</h3>
+                        <p class="diferenciais__text">Satisfação garantida ou seu dinheiro de volta. Nossa reputação é o nosso maior patrimônio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMO FUNCIONA -->
+        <section class="como-funciona">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle">Simples e Rápido</span>
+                    <h2 class="section-title">Como Funciona</h2>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <div class="como-funciona__steps">
+                    <div class="como-funciona__step" data-aos="fade-right">
+                        <div class="como-funciona__step-number">1</div>
+                        <div class="como-funciona__step-content">
+                            <div class="como-funciona__step-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <h3 class="como-funciona__step-title">Contato</h3>
+                            <p class="como-funciona__step-text">Entre em contato pelo telefone ou WhatsApp. Agende um horário para avaliação.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="como-funciona__step" data-aos="fade-right" data-aos-delay="150">
+                        <div class="como-funciona__step-number">2</div>
+                        <div class="como-funciona__step-content">
+                            <div class="como-funciona__step-icon">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <h3 class="como-funciona__step-title">Avaliação</h3>
+                            <p class="como-funciona__step-text">Nossa equipe avalia o local e o serviço necessário. Orçamento sem compromisso.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="como-funciona__step" data-aos="fade-right" data-aos-delay="300">
+                        <div class="como-funciona__step-number">3</div>
+                        <div class="como-funciona__step-content">
+                            <div class="como-funciona__step-icon">
+                                <i class="fas fa-brush"></i>
+                            </div>
+                            <h3 class="como-funciona__step-title">Higienização</h3>
+                            <p class="como-funciona__step-text">Aplicamos a técnica profissional a seco. Remoção de manchas, ácaros e odores.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="como-funciona__step" data-aos="fade-right" data-aos-delay="450">
+                        <div class="como-funciona__step-number">4</div>
+                        <div class="como-funciona__step-content">
+                            <div class="como-funciona__step-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3 class="como-funciona__step-title">Resultado</h3>
+                            <p class="como-funciona__step-text">Ambiente renovado, seco e pronto para uso. Sua satisfação é nossa prioridade.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="como-funciona__connector"></div>
+            </div>
+        </section>
+
+        <!-- PROMOÇÃO ESPECIAL (PAGAMENTO FIM DO MÊS) -->
+        <section class="promo-banner">
+            <div class="container">
+                <div class="promo-banner__content" data-aos="zoom-in">
+                    <span class="promo-banner__tag">🔥 PROMOÇÃO EXCLUSIVA</span>
+                    <h2 class="promo-banner__title">Pagamento no Fim do Mês</h2>
+                    <p class="promo-banner__description">O pagamento dos serviços é realizado no final do mês, válido exclusivamente para clientes que comprovem vínculo de trabalho.</p>
+                    
+                    <div class="promo-banner__grid">
+                        <div class="promo-banner__item"><i class="fas fa-couch"></i> Sofá</div>
+                        <div class="promo-banner__item"><i class="fas fa-chair"></i> Cadeiras e Poltrona</div>
+                        <div class="promo-banner__item"><i class="fas fa-rug"></i> Tapetes e Carpetes</div>
+                        <div class="promo-banner__item"><i class="fas fa-home"></i> Assistência Doméstica</div>
+                        <div class="promo-banner__item"><i class="fas fa-curtain"></i> Cortinas</div>
+                        <div class="promo-banner__item"><i class="fas fa-bed"></i> Colchões e Base</div>
+                        <div class="promo-banner__item"><i class="fas fa-car-side"></i> Interior de Viaturas</div>
+                        <div class="promo-banner__item"><i class="fas fa-hard-hat"></i> Limpeza após Obra</div>
+                    </div>
+                    
+                    <div class="promo-banner__condition">
+                        <i class="fas fa-check-circle"></i>
+                        Mediante comprovação de vínculo empregatício
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVIÇOS PRINCIPAIS -->
+        <section id="servicos" class="servicos-preview">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle">Nossas Especialidades</span>
+                    <h2 class="section-title">Serviços Profissionais</h2>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <div class="servicos-preview__grid">
+                    <!-- Sofás -->
+                    <div class="servico-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="servico-card__image">
+                            <img src="images/limpando_agachado.jpeg" alt="Higienização de Sofás" class="servico-card__img">
+                            <div class="servico-card__overlay">
+                                <span class="servico-card__tag">Destaque</span>
+                            </div>
+                        </div>
+                        <div class="servico-card__content">
+                            <h3 class="servico-card__title">Sofás & Poltronas</h3>
+                            <p class="servico-card__description">Remoção de manchas, odores e ácaros. Tecidos recuperados como novos.</p>
+                            <a href="#" class="servico-card__link">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Colchões -->
+                    <div class="servico-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="servico-card__image">
+                            <img src="images/limpando_cama.png" alt="Higienização de Colchões" class="servico-card__img">
+                            <div class="servico-card__overlay">
+                                <span class="servico-card__tag">Saúde</span>
+                            </div>
+                        </div>
+                        <div class="servico-card__content">
+                            <h3 class="servico-card__title">Colchões</h3>
+                            <p class="servico-card__description">Eliminação de ácaros e bactérias. Sono mais saudável para sua família.</p>
+                            <a href="#" class="servico-card__link">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Viaturas -->
+                    <div class="servico-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="servico-card__image">
+                            <img src="images/interior_viatura.png" alt="Higienização de Interiores de Viaturas" class="servico-card__img">
+                            <div class="servico-card__overlay">
+                                <span class="servico-card__tag">Premium</span>
+                            </div>
+                        </div>
+                        <div class="servico-card__content">
+                            <h3 class="servico-card__title">Interiores de Viaturas</h3>
+                            <p class="servico-card__description">Bancos, carpetes e teto. Eliminação de odores e valorização do veículo.</p>
+                            <a href="#" class="servico-card__link">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TABELAS DE PREÇOS (TAPETES E CORTINAS) -->
+        <section class="pricing-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle">Ofertas Especiais</span>
+                    <h2 class="section-title">MEGA PROMOÇÃO</h2>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <div class="pricing-tables">
+                    <!-- Tapetes -->
+                    <div class="pricing-card" data-aos="fade-right">
+                        <div class="pricing-card__header">
+                            <h3 class="pricing-card__title">TAPETES E CARPETES</h3>
+                            <div class="pricing-card__badge">-10%</div>
+                        </div>
+                        <table class="pricing-table">
+                            <tr>
+                                <td class="pricing-table__service">Pequeno</td>
+                                <td class="pricing-table__old-price">10.000 Kz</td>
+                                <td class="pricing-table__new-price">9.000 Kz</td>
+                            </tr>
+                            <tr>
+                                <td class="pricing-table__service">Médio</td>
+                                <td class="pricing-table__old-price">13.000 Kz</td>
+                                <td class="pricing-table__new-price">11.700 Kz</td>
+                            </tr>
+                            <tr>
+                                <td class="pricing-table__service">Grande</td>
+                                <td class="pricing-table__old-price">18.000 Kz</td>
+                                <td class="pricing-table__new-price">16.200 Kz</td>
+                            </tr>
+                            <tr>
+                                <td class="pricing-table__service">Extra Grande</td>
+                                <td class="pricing-table__old-price">20.000 Kz</td>
+                                <td class="pricing-table__new-price">18.000 Kz</td>
+                            </tr>
+                            <tr>
+                                <td class="pricing-table__service">Carpete</td>
+                                <td colspan="2" class="pricing-table__special">Sob Medida</td>
+                            </tr>
+                        </table>
+                        <div class="pricing-card__footer">
+                            <a href="https://wa.me/244945543959" class="btn btn--primary btn--full">Solicitar Orçamento</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Cortinas -->
+                    <div class="pricing-card" data-aos="fade-left">
+                        <div class="pricing-card__header">
+                            <h3 class="pricing-card__title">CORTINAS</h3>
+                            <div class="pricing-card__badge">-10%</div>
+                        </div>
+                        <table class="pricing-table">
+                            <tr>
+                                <td class="pricing-table__service">Jogo Pequeno</td>
+                                <td class="pricing-table__old-price">10.000 Kz</td>
+                                <td class="pricing-table__new-price">9.000 Kz</td>
+                            </tr>
+                            <tr>
+                                <td class="pricing-table__service">Jogo Médio</td>
+                                <td class="pricing-table__old-price">13.000 Kz</td>
+                                <td class="pricing-table__new-price">11.700 Kz</td>
+                            </tr>
+                            <tr>
+                                <td class="pricing-table__service">Jogo Grande</td>
+                                <td class="pricing-table__old-price">15.000 Kz</td>
+                                <td class="pricing-table__new-price">13.500 Kz</td>
+                            </tr>
+                            <tr>
+                                <td class="pricing-table__service">Extra Grande</td>
+                                <td class="pricing-table__old-price">20.000 Kz</td>
+                                <td class="pricing-table__new-price">18.000 Kz</td>
+                            </tr>
+                            <tr>
+                                <td class="pricing-table__service">Com Blackout</td>
+                                <td class="pricing-table__old-price">25.000 Kz</td>
+                                <td class="pricing-table__new-price">22.500 Kz</td>
+                            </tr>
+                        </table>
+                        <div class="pricing-card__footer">
+                            <a href="https://wa.me/244945543959" class="btn btn--primary btn--full">Solicitar Orçamento</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="pricing-section__note" data-aos="fade-up">
+                    <i class="fas fa-clock"></i> Aproveite esta promoção por tempo limitado!
+                </p>
+            </div>
+        </section>
+
+        <!-- ANTES E DEPOIS -->
+        <section id="galeria" class="before-after-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle">Resultados Reais</span>
+                    <h2 class="section-title">Antes & Depois</h2>
+                    <div class="section-divider"></div>
+                </div>
+            </div>
+            
+            <div class="before-after__grid">
+                <div class="before-after__item" data-aos="fade-up">
+                    <div class="before-after__image before">
+                        <img src="images/antes_sofá.jpg" alt="Antes">
+                        <span class="before-after__label">ANTES</span>
+                    </div>
+                    <div class="before-after__image after">
+                        <img src="images/depois_sofá.jpg" alt="Depois">
+                        <span class="before-after__label">DEPOIS</span>
+                    </div>
+                </div>
+                
+                <div class="before-after__item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="before-after__image before">
+                        <img src="images/antes_cadeira.jpg" alt="Antes">
+                        <span class="before-after__label">ANTES</span>
+                    </div>
+                    <div class="before-after__image after">
+                        <img src="images/depois_cadeira.jpg" alt="Depois">
+                        <span class="before-after__label">DEPOIS</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="before-after__cta" data-aos="fade-up">
+                    <a href="#" class="btn btn--primary">Ver Mais Resultados</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEPOIMENTOS -->
+        <section class="depoimentos">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle">O que nossos clientes dizem</span>
+                    <h2 class="section-title">Depoimentos</h2>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <div class="depoimentos__slider" data-aos="fade-up">
+                    <div class="depoimentos__item active">
+                        <div class="depoimentos__rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="depoimentos__text">"Excelente serviço! Fizeram a limpeza do meu sofá que já estava bastante manchado e ficou como novo. Super recomendo!"</p>
+                        <div class="depoimentos__author">
+                            <div class="depoimentos__author-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="depoimentos__author-info">
+                                <h4 class="depoimentos__author-name">Maria Silva</h4>
+                                <span class="depoimentos__author-date">Cliente desde 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="depoimentos__item">
+                        <div class="depoimentos__rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="depoimentos__text">"A higienização do meu carro ficou perfeita! Bancos impecáveis e o cheiro de novo voltou. Atendimento pontual e profissional."</p>
+                        <div class="depoimentos__author">
+                            <div class="depoimentos__author-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="depoimentos__author-info">
+                                <h4 class="depoimentos__author-name">João Mendes</h4>
+                                <span class="depoimentos__author-date">Cliente desde 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="depoimentos__item">
+                        <div class="depoimentos__rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="depoimentos__text">"Minha filha tem alergia e depois da limpeza dos colchões ela melhorou muito. Serviço de qualidade e equipe muito educada."</p>
+                        <div class="depoimentos__author">
+                            <div class="depoimentos__author-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="depoimentos__author-info">
+                                <h4 class="depoimentos__author-name">Ana Paula</h4>
+                                <span class="depoimentos__author-date">Cliente desde 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="depoimentos__dots">
+                    <span class="depoimentos__dot active"></span>
+                    <span class="depoimentos__dot"></span>
+                    <span class="depoimentos__dot"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-section__content" data-aos="zoom-in">
+                    <h2 class="cta-section__title">Transforme seu ambiente hoje mesmo</h2>
+                    <p class="cta-section__text">Agende uma avaliação gratuita e descubra o poder da higienização profissional a seco.</p>
+                    <a href="https://wa.me/244945543959" target="_blank" class="btn btn--whatsapp btn--large">
+                        <i class="fab fa-whatsapp"></i> Solicitar Orçamento
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTATO -->
+        <section id="contacto" class="contato-rapido">
+            <div class="container">
+                <div class="contato-rapido__grid">
+                    <div class="contato-rapido__info" data-aos="fade-right">
+                        <h2 class="contato-rapido__title">Vamos transformar seu ambiente?</h2>
+                        <p class="contato-rapido__text">Entre em contato e agende uma avaliação gratuita. Respondemos rapidamente!</p>
+                        
+                        <div class="contato-rapido__item">
+                            <div class="contato-rapido__icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contato-rapido__details">
+                                <h4>Telefone / WhatsApp</h4>
+                                <a href="tel:+244945543959">945 543 959</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contato-rapido__item">
+                            <div class="contato-rapido__icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contato-rapido__details">
+                                <h4>E-mail</h4>
+                                <a href="mailto:totalhigienecabinda@gmail.com">totalhigienecabinda@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contato-rapido__item">
+                            <div class="contato-rapido__icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contato-rapido__details">
+                                <h4>Horário de Funcionamento</h4>
+                                <p>Segunda a Sábado, 8h às 17h30</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contato-rapido__item">
+                            <div class="contato-rapido__icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contato-rapido__details">
+                                <h4>Localização</h4>
+                                <p>Rua Das Forças Armadas, Cabinda</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contato-rapido__social">
+                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="contato-rapido__form" data-aos="fade-left">
+                        <h3 class="contato-rapido__form-title">Envie uma mensagem</h3>
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Seu nome" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Seu e-mail">
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" class="form-control" placeholder="Seu telefone" required>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control">
+                                    <option value="">Selecione o serviço</option>
+                                    <option value="sofa">Sofá / Poltrona</option>
+                                    <option value="colchao">Colchão</option>
+                                    <option value="carro">Interior de Viatura</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Sua mensagem" rows="4"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn--primary btn--full">Enviar Mensagem</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__about">
+                    <img src="images/totalHigiene.png" alt="Total Higiene" class="footer__logo">
+                    <p class="footer__description">Especialistas em higienização profissional a seco em Cabinda. Devolvemos a pureza e o conforto aos seus espaços com tecnologia alemã.</p>
+                </div>
+                
+                <div class="footer__links">
+                    <h4 class="footer__title">Links Rápidos</h4>
+                    <ul class="footer__menu">
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="#sobre">Sobre Nós</a></li>
+                        <li><a href="#galeria">Galeria</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__services">
+                    <h4 class="footer__title">Serviços</h4>
+                    <ul class="footer__menu">
+                        <li><a href="#">Sofás & Poltronas</a></li>
+                        <li><a href="#">Colchões</a></li>
+                        <li><a href="#">Tapetes & Cortinas</a></li>
+                        <li><a href="#">Interior de Viaturas</a></li>
+                        <li><a href="#">Limpeza Pós Obra</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__contact">
+                    <h4 class="footer__title">Contactos</h4>
+                    <ul class="footer__contact-list">
+                        <li><i class="fas fa-phone"></i> 945 543 959</li>
+                        <li><i class="fas fa-phone"></i> 921 128 624</li>
+                        <li><i class="fas fa-envelope"></i> totalhigienecabinda@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Rua Das Forças Armadas, Cabinda</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2026 Total Higiene. Todos os direitos reservados.</p>
+                <p class="footer__credits">"Na Total Higiene o serviço é sério"</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

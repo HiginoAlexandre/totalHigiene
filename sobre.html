@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Higiene - Sobre Nós em Cabinda</title>
+    
+    <!-- Meta tags para SEO -->
+    <meta name="description" content="Conheça a história da Total Higiene em Cabinda. Especialistas em higienização profissional a seco com tecnologia alemã. Missão, visão, valores e nossa equipa.">
+    <meta name="keywords" content="sobre nós, história, missão, visão, valores, equipa, higienização, Cabinda, Angola">
+    <meta name="author" content="Total Higiene">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Nossos arquivos CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- CSS específico para página sobre nós -->
+    <style>
+        /* Hero da página sobre nós */
+        .about-hero {
+            background: linear-gradient(135deg, var(--azul-escuro), var(--azul-principal));
+            padding: 60px 0 80px;
+            text-align: center;
+            color: var(--branco);
+            margin-top: calc(var(--header-height) * -1);
+            padding-top: calc(var(--header-height) + 60px);
+        }
+        
+        .about-hero__title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--branco);
+        }
+        
+        .about-hero__title span {
+            color: var(--amarelo);
+        }
+        
+        .about-hero__description {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* Seção história */
+        .history-section {
+            padding: 80px 0;
+            background: var(--branco);
+        }
+        
+        .history-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .history-content__title {
+            font-size: 2.2rem;
+            color: var(--azul-escuro);
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .history-content__title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--amarelo);
+        }
+        
+        .history-content__text {
+            color: var(--texto-claro);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .history-content__text strong {
+            color: var(--azul-claro);
+        }
+        
+        .history-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--sombra-media);
+        }
+        
+        .history-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+        
+        .history-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Seção missão, visão, valores */
+        .mvv-section {
+            padding: 80px 0;
+            background: var(--cinza-claro);
+        }
+        
+        .mvv-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .mvv-card {
+            background: var(--branco);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--sombra-suave);
+            transition: var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mvv-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--sombra-media);
+        }
+        
+        .mvv-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--azul-claro);
+        }
+        
+        .mvv-card:nth-child(2)::before {
+            background: var(--amarelo);
+        }
+        
+        .mvv-card:nth-child(3)::before {
+            background: var(--whatsapp);
+        }
+        
+        .mvv-card__icon {
+            width: 80px;
+            height: 80px;
+            background: var(--cinza-claro);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: var(--azul-claro);
+            transition: var(--transition-normal);
+        }
+        
+        .mvv-card:hover .mvv-card__icon {
+            background: var(--azul-claro);
+            color: var(--branco);
+            transform: rotateY(180deg);
+        }
+        
+        .mvv-card:nth-child(2):hover .mvv-card__icon {
+            background: var(--amarelo);
+            color: var(--azul-escuro);
+        }
+        
+        .mvv-card:nth-child(3):hover .mvv-card__icon {
+            background: var(--whatsapp);
+            color: var(--branco);
+        }
+        
+        .mvv-card__title {
+            font-size: 1.8rem;
+            color: var(--azul-escuro);
+            margin-bottom: 15px;
+        }
+        
+        .mvv-card__text {
+            color: var(--texto-claro);
+            line-height: 1.7;
+        }
+        
+        /* Seção valores */
+        .values-section {
+            padding: 80px 0;
+            background: var(--branco);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 50px;
+        }
+        
+        .value-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--cinza-claro);
+            border-radius: 15px;
+            transition: var(--transition-normal);
+        }
+        
+        .value-item:hover {
+            background: var(--azul-claro);
+            transform: translateY(-5px);
+        }
+        
+        .value-item:hover .value-item__icon,
+        .value-item:hover .value-item__title,
+        .value-item:hover .value-item__desc {
+            color: var(--branco);
+        }
+        
+        .value-item__icon {
+            font-size: 2.5rem;
+            color: var(--azul-claro);
+            margin-bottom: 15px;
+            transition: var(--transition-normal);
+        }
+        
+        .value-item__title {
+            font-size: 1.3rem;
+            color: var(--azul-escuro);
+            margin-bottom: 10px;
+            transition: var(--transition-normal);
+        }
+        
+        .value-item__desc {
+            color: var(--texto-claro);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            transition: var(--transition-normal);
+        }
+        
+        /* Seção equipa */
+        .team-section {
+            padding: 80px 0;
+            background: var(--cinza-claro);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .team-card {
+            background: var(--branco);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--sombra-suave);
+            transition: var(--transition-normal);
+            text-align: center;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--sombra-media);
+        }
+        
+        .team-card__image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .team-card__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+        
+        .team-card:hover .team-card__image img {
+            transform: scale(1.1);
+        }
+        
+        .team-card__overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, var(--azul-escuro), transparent);
+            opacity: 0;
+            transition: var(--transition-normal);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .team-card:hover .team-card__overlay {
+            opacity: 1;
+        }
+        
+        .team-card__social {
+            display: flex;
+            gap: 15px;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+        
+        .team-card:hover .team-card__social {
+            transform: translateY(0);
+        }
+        
+        .team-card__social a {
+            width: 40px;
+            height: 40px;
+            background: var(--amarelo);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--azul-escuro);
+            transition: var(--transition-normal);
+        }
+        
+        .team-card__social a:hover {
+            background: var(--branco);
+            transform: scale(1.1);
+        }
+        
+        .team-card__info {
+            padding: 20px;
+        }
+        
+        .team-card__name {
+            font-size: 1.3rem;
+            color: var(--azul-escuro);
+            margin-bottom: 5px;
+        }
+        
+        .team-card__role {
+            color: var(--azul-claro);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .team-card__desc {
+            color: var(--texto-claro);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        /* Seção diferenciais */
+        .diffs-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--azul-escuro), var(--azul-principal));
+            color: var(--branco);
+        }
+        
+        .diffs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .diff-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition-normal);
+        }
+        
+        .diff-item:hover {
+            background: var(--amarelo);
+            color: var(--azul-escuro);
+            transform: translateY(-5px);
+        }
+        
+        .diff-item__icon {
+            font-size: 2.5rem;
+            color: var(--amarelo);
+            margin-bottom: 15px;
+            transition: var(--transition-normal);
+        }
+        
+        .diff-item:hover .diff-item__icon {
+            color: var(--azul-escuro);
+        }
+        
+        .diff-item__title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .diff-item__desc {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        /* Seção certificações */
+        .cert-section {
+            padding: 60px 0;
+            background: var(--branco);
+        }
+        
+        .cert-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .cert-item {
+            text-align: center;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: var(--transition-normal);
+        }
+        
+        .cert-item:hover {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+        
+        .cert-item img {
+            height: 60px;
+            width: auto;
+        }
+        
+        .cert-item p {
+            margin-top: 10px;
+            color: var(--texto-claro);
+            font-weight: 600;
+        }
+        
+        /* Timeline */
+        .timeline-section {
+            padding: 80px 0;
+            background: var(--cinza-claro);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background: var(--azul-claro);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--branco);
+            border: 3px solid var(--amarelo);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .timeline-item.left {
+            left: 0;
+        }
+        
+        .timeline-item.right {
+            left: 50%;
+        }
+        
+        .timeline-item.left::after {
+            right: -10px;
+        }
+        
+        .timeline-item.right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background: var(--branco);
+            border-radius: 10px;
+            box-shadow: var(--sombra-suave);
+        }
+        
+        .timeline-content h3 {
+            color: var(--azul-escuro);
+            margin-bottom: 5px;
+        }
+        
+        .timeline-content .year {
+            color: var(--amarelo);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .history-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mvv-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .diffs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item.right {
+                left: 0;
+            }
+            
+            .timeline-item.left::after,
+            .timeline-item.right::after {
+                left: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .diffs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header__container">
+            <div class="header__logo">
+                <a href="index.html">
+                    <img src="images/totalHigiene.png" alt="Total Higiene Logo" class="header__logo-img">
+                </a>
+            </div>
+            
+            <nav class="header__nav">
+                <ul class="header__menu">
+                    <li class="header__menu-item"><a href="index.html" class="header__menu-link">Início</a></li>
+                    <li class="header__menu-item"><a href="servicos.html" class="header__menu-link active">Serviços</a></li>
+                    <li class="header__menu-item"><a href="sobre.html" class="header__menu-link">Sobre Nós</a></li>
+                    <li class="header__menu-item"><a href="galeria.html" class="header__menu-link">Galeria</a></li>
+                    <li class="header__menu-item"><a href="contacto.html" class="header__menu-link">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header__social">
+                <a href="https://www.instagram.com/totalhigiene_cabinda" target="_blank" class="header__social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1CXgDH3zJT" target="_blank" class="header__social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@total.higiene" target="_blank" class="header__social-link"><i class="fab fa-tiktok"></i></a>
+            </div>
+            
+            <button class="header__mobile-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu__header">
+            <img src="images/totalHigiene.png" alt="Total Higiene" class="mobile-menu__logo">
+            <button class="mobile-menu__close" id="close-menu-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <ul class="mobile-menu__list">
+            <li class="mobile-menu__item"><a href="index.html" class="mobile-menu__link">Início</a></li>
+            <li class="mobile-menu__item"><a href="servicos.html" class="mobile-menu__link">Serviços</a></li>
+            <li class="mobile-menu__item"><a href="sobre.html" class="mobile-menu__link">Sobre Nós</a></li>
+            <li class="mobile-menu__item"><a href="galeria.html" class="mobile-menu__link">Galeria</a></li>
+            <li class="mobile-menu__item"><a href="contacto.html" class="mobile-menu__link">Contacto</a></li>
+        </ul>
+        <div class="mobile-menu__social">
+            <a href="https://www.instagram.com/totalhigiene_cabinda" target="_blank" class="mobile-menu__social-link"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1CXgDH3zJT" target="_blank" class="mobile-menu__social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/@total.higiene" target="_blank" class="mobile-menu__social-link"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </div>
+
+    <main>
+        <!-- HERO DA PÁGINA SOBRE NÓS -->
+        <section class="about-hero">
+            <div class="container">
+                <h1 class="about-hero__title" data-aos="fade-up">
+                    SOBRE <span>NÓS</span>
+                </h1>
+                <p class="about-hero__description" data-aos="fade-up" data-aos-delay="100">
+                    Conheça a história da Total Higiene, a nossa missão e a equipa que torna tudo possível.
+                    Mais de 500 clientes satisfeitos em Cabinda.
+                </p>
+            </div>
+        </section>
+
+        <!-- HISTÓRIA -->
+        <section class="history-section">
+            <div class="container">
+                <div class="history-grid">
+                    <div class="history-content" data-aos="fade-right">
+                        <h2 class="history-content__title">Nossa História</h2>
+                        <p class="history-content__text">
+                            A <strong>Total Higiene</strong> nasceu em <strong>Cabinda</strong> com um objetivo claro: 
+                            levar saúde, conforto e bem-estar através da higienização profissional a seco.
+                        </p>
+                        <p class="history-content__text">
+                            Fundada por profissionais com mais de 10 anos de experiência no setor, 
+                            a empresa rapidamente se tornou referência na província, atendendo centenas 
+                            de clientes residenciais e comerciais.
+                        </p>
+                        <p class="history-content__text">
+                            Com equipamentos importados da <strong>Alemanha</strong> e técnicas inovadoras, 
+                            conseguimos eliminar até 99.9% dos ácaros e bactérias, devolvendo a pureza 
+                            e o conforto aos lares e empresas de Cabinda.
+                        </p>
+                        <p class="history-content__text">
+                            Hoje, orgulhamo-nos de ser a escolha número um para quem busca qualidade, 
+                            segurança e profissionalismo em higienização de estofados e interiores de viaturas.
+                        </p>
+                    </div>
+                    <div class="history-image" data-aos="fade-left">
+                        <img src="images/equipa-total-higiene.jpg" alt="Equipa Total Higiene" onerror="this.src='https://via.placeholder.com/600x400?text=Equipa+Total+Higiene'">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MISSÃO, VISÃO, VALORES -->
+        <section class="mvv-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle">O que nos move</span>
+                    <h2 class="section-title">Missão, Visão & Valores</h2>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <div class="mvv-grid">
+                    <div class="mvv-card" data-aos="flip-left" data-aos-delay="100">
+                        <div class="mvv-card__icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="mvv-card__title">Missão</h3>
+                        <p class="mvv-card__text">
+                            Proporcionar saúde e bem-estar através da higienização profissional, 
+                            eliminando ácaros, bactérias e alérgenos, garantindo ambientes mais 
+                            saudáveis e confortáveis para nossos clientes.
+                        </p>
+                    </div>
+                    
+                    <div class="mvv-card" data-aos="flip-left" data-aos-delay="200">
+                        <div class="mvv-card__icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3 class="mvv-card__title">Visão</h3>
+                        <p class="mvv-card__text">
+                            Ser referência em higienização profissional em toda Angola, 
+                            reconhecida pela excelência, inovação e compromisso com a saúde 
+                            e satisfação dos clientes.
+                        </p>
+                    </div>
+                    
+                    <div class="mvv-card" data-aos="flip-left" data-aos-delay="300">
+                        <div class="mvv-card__icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="mvv-card__title">Valores</h3>
+                        <p class="mvv-card__text">
+                            Compromisso, ética, respeito, inovação e dedicação. 
+                            Valorizamos cada cliente como único e buscamos sempre a excelência 
+                            em cada serviço realizado.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VALORES DETALHADOS -->
+        <section class="values-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle">Nossos princípios</span>
+                    <h2 class="section-title">Valores que nos guiam</h2>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <div class="values-grid">
+                    <div class="value-item" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="value-item__icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h3 class="value-item__title">Compromisso</h3>
+                        <p class="value-item__desc">
+                            Comprometemo-nos com a qualidade e satisfação total dos nossos clientes.
+                        </p>
+                    </div>
+                    
+                    <div class="value-item" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="value-item__icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="value-item__title">Ética</h3>
+                        <p class="value-item__desc">
+                            Atuamos com transparência, honestidade e respeito em todas as relações.
+                        </p>
+                    </div>
+                    
+                    <div class="value-item" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="value-item__icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="value-item__title">Respeito</h3>
+                        <p class="value-item__desc">
+                            Respeitamos nossos clientes, colaboradores e o meio ambiente.
+                        </p>
+                    </div>
+                    
+                    <div class="value-item" data-aos="zoom-in" data-aos-delay="250">
+                        <div class="value-item__icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="value-item__title">Inovação</h3>
+                        <p class="value-item__desc">
+                            Buscamos constantemente novas tecnologias e métodos mais eficientes.
+                        </p>
+                    </div>
+                    
+                    <div class="value-item" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="value-item__icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3 class="value-item__title">Excelência</h3>
+                        <p class="value-item__desc">
+                            Buscamos a perfeição em cada detalhe, superando expectativas.
+                        </p>
+                    </div>
+                    
+                    <div class="value-item" data-aos="zoom-in" data-aos-delay="350">
+                        <div class="value-item__icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3 class="value-item__title">Pontualidade</h3>
+                        <p class="value-item__desc">
+                            Respeitamos o tempo dos nossos clientes com pontualidade e agilidade.
+                        </p>
+                    </div>
+                    
+                    <div class="value-item" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="value-item__icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="value-item__title">Sustentabilidade</h3>
+                        <p class="value-item__desc">
+                            Utilizamos produtos e técnicas que respeitam o meio ambiente.
+                        </p>
+                    </div>
+                    
+                    <div class="value-item" data-aos="zoom-in" data-aos-delay="450">
+                        <div class="value-item__icon">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                        <h3 class="value-item__title">Felicidade</h3>
+                        <p class="value-item__desc">
+                            Trabalhamos para ver o sorriso de satisfação de cada cliente.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TIMELINE / JORNADA -->
+        <section class="timeline-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle">Nossa jornada</span>
+                    <h2 class="section-title">Linha do Tempo</h2>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item left" data-aos="fade-right">
+                        <div class="timeline-content">
+                            <h3>Fundação da Total Higiene</h3>
+                            <p class="year">2020</p>
+                            <p>Início das atividades em Cabinda com foco em higienização residencial.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item right" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <h3>Expansão para serviços automotivos</h3>
+                            <p class="year">2021</p>
+                            <p>Lançamento da linha de higienização de interiores de viaturas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item left" data-aos="fade-right">
+                        <div class="timeline-content">
+                            <h3>Chegada da tecnologia alemã</h3>
+                            <p class="year">2022</p>
+                            <p>Importação de equipamentos de última geração da Alemanha.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item right" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <h3>500 clientes satisfeitos</h3>
+                            <p class="year">2023</p>
+                            <p>Marco histórico de 500 serviços realizados com excelência.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item left" data-aos="fade-right">
+                        <div class="timeline-content">
+                            <h3>Lançamento do site oficial</h3>
+                            <p class="year">2024</p>
+                            <p>Presença digital para melhor atender nossos clientes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item right" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <h3>Expansão para empresas</h3>
+                            <p class="year">2025</p>
+                            <p>Início dos serviços para escritórios, lojas e comércios em geral.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EQUIPA -->
+        <section class="team-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle">Quem faz acontecer</span>
+                    <h2 class="section-title">Nossa Equipa</h2>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <div class="team-grid">
+                    <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="team-card__image">
+                            <img src="images/equipa/joao.jpg" alt="João Maria" onerror="this.src='https://via.placeholder.com/400x400?text=João+Maria'">
+                            <div class="team-card__overlay">
+                                <div class="team-card__social">
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-card__info">
+                            <h3 class="team-card__name">João Maria</h3>
+                            <p class="team-card__role">Técnico Especialista</p>
+                            <p class="team-card__desc">5 anos de experiência em higienização de estofados e viaturas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="team-card__image">
+                            <img src="images/equipa/maria.jpg" alt="Maria Antónia" onerror="this.src='https://via.placeholder.com/400x400?text=Maria+Antónia'">
+                            <div class="team-card__overlay">
+                                <div class="team-card__social">
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-card__info">
+                            <h3 class="team-card__name">Maria Antónia</h3>
+                            <p class="team-card__role">Coordenadora de Operações</p>
+                            <p class="team-card__desc">Garante a qualidade e satisfação dos clientes em cada serviço.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="team-card__image">
+                            <img src="images/equipa/pedro.jpg" alt="Pedro Afonso" onerror="this.src='https://via.placeholder.com/400x400?text=Pedro+Afonso'">
+                            <div class="team-card__overlay">
+                                <div class="team-card__social">
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-card__info">
+                            <h3 class="team-card__name">Pedro Afonso</h3>
+                            <p class="team-card__role">Técnico de Higienização</p>
+                            <p class="team-card__desc">Especialista em interiores de viaturas e estofados delicados.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="team-card__image">
+                            <img src="images/equipa/ana.jpg" alt="Ana Paula" onerror="this.src='https://via.placeholder.com/400x400?text=Ana+Paula'">
+                            <div class="team-card__overlay">
+                                <div class="team-card__social">
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-card__info">
+                            <h3 class="team-card__name">Ana Paula</h3>
+                            <p class="team-card__role">Atendimento ao Cliente</p>
+                            <p class="team-card__desc">Pronta para ajudar com orçamentos e agendamentos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIFERENCIAIS -->
+        <section class="diffs-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle">Por que escolher a</span>
+                    <h2 class="section-title" style="color: var(--branco);">Total Higiene?</h2>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <div class="diffs-grid">
+                    <div class="diff-item" data-aos="flip-left" data-aos-delay="100">
+                        <div class="diff-item__icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <h3 class="diff-item__title">Secagem Rápida</h3>
+                        <p class="diff-item__desc">Tecnologia a seco que permite a secagem completa em até 2 horas.</p>
+                    </div>
+                    
+                    <div class="diff-item" data-aos="flip-left" data-aos-delay="200">
+                        <div class="diff-item__icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="diff-item__title">Eliminação de Ácaros</h3>
+                        <p class="diff-item__desc">Eliminação de 99.9% dos ácaros, bactérias e alérgenos.</p>
+                    </div>
+                    
+                    <div class="diff-item" data-aos="flip-left" data-aos-delay="300">
+                        <div class="diff-item__icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3 class="diff-item__title">Tecnologia Alemã</h3>
+                        <p class="diff-item__desc">Equipamentos de última geração importados da Alemanha.</p>
+                    </div>
+                    
+                    <div class="diff-item" data-aos="flip-left" data-aos-delay="400">
+                        <div class="diff-item__icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="diff-item__title">Atendimento em Cabinda</h3>
+                        <p class="diff-item__desc">Buscamos e entregamos seu estofado em toda Cabinda.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CERTIFICAÇÕES / PARCEIROS -->
+        <section class="cert-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle">Tecnologia e qualidade</span>
+                    <h2 class="section-title">Certificações & Parceiros</h2>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <div class="cert-grid">
+                    <div class="cert-item" data-aos="zoom-in">
+                        <img src="images/cert/iso.png" alt="ISO 9001" onerror="this.src='https://via.placeholder.com/150x60?text=ISO+9001'">
+                        <p>ISO 9001</p>
+                    </div>
+                    
+                    <div class="cert-item" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="images/cert/alema.png" alt="Tecnologia Alemã" onerror="this.src='https://via.placeholder.com/150x60?text=Tecnologia+Alemã'">
+                        <p>Tecnologia Alemã</p>
+                    </div>
+                    
+                    <div class="cert-item" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="images/cert/angola.png" alt="Ministério da Saúde" onerror="this.src='https://via.placeholder.com/150x60?text=Min.+Saúde'">
+                        <p>Ministério da Saúde</p>
+                    </div>
+                    
+                    <div class="cert-item" data-aos="zoom-in" data-aos-delay="300">
+                        <img src="images/cert/ecofriendly.png" alt="Eco Friendly" onerror="this.src='https://via.placeholder.com/150x60?text=Eco+Friendly'">
+                        <p>Produtos Ecológicos</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-section__content" data-aos="zoom-in">
+                    <h2 class="cta-section__title">Faça parte da nossa história</h2>
+                    <p class="cta-section__text">Agende uma avaliação gratuita e descubra por que somos a escolha número um em Cabinda.</p>
+                    <a href="https://wa.me/244945543959" target="_blank" class="btn btn--whatsapp btn--large">
+                        <i class="fab fa-whatsapp"></i> Solicitar Avaliação
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__about">
+                    <img src="images/totalHigiene.png" alt="Total Higiene" class="footer__logo">
+                    <p class="footer__description">Especialistas em higienização profissional a seco em Cabinda. Devolvemos a pureza e o conforto aos seus espaços com tecnologia alemã.</p>
+                </div>
+                
+                <div class="footer__links">
+                    <h4 class="footer__title">Links Rápidos</h4>
+                    <ul class="footer__menu">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="galeria.html">Galeria</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__services">
+                    <h4 class="footer__title">Serviços</h4>
+                    <ul class="footer__menu">
+                        <li><a href="servicos.html#sofas">Sofás & Poltronas</a></li>
+                        <li><a href="servicos.html#colchoes">Colchões</a></li>
+                        <li><a href="servicos.html#tapetes">Tapetes & Cortinas</a></li>
+                        <li><a href="servicos.html#viaturas">Interior de Viaturas</a></li>
+                        <li><a href="#">Limpeza Pós Obra</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__contact">
+                    <h4 class="footer__title">Contactos</h4>
+                    <ul class="footer__contact-list">
+                        <li><i class="fas fa-phone"></i> 945 543 959</li>
+                        <li><i class="fas fa-phone"></i> 921 128 624</li>
+                        <li><i class="fas fa-envelope"></i> totalhigienecabinda@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Rua Das Forças Armadas, Cabinda</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2026 Total Higiene. Todos os direitos reservados.</p>
+                <p class="footer__credits">"Na Total Higiene o serviço é sério"</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Flutuante -->
+    <a href="https://wa.me/244945543959" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Inicializar AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+            easing: 'ease-in-out'
+        });
+    </script>
+</body>
+</html>

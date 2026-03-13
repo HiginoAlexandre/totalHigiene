@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Higiene - Serviços e Preços em Cabinda</title>
+    
+    <!-- Meta tags para SEO -->
+    <meta name="description" content="Conheça todos os serviços da Total Higiene: higienização de sofás, colchões, tapetes, cortinas, viaturas e muito mais. Preços especiais em Cabinda.">
+    <meta name="keywords" content="higienização, limpeza a seco, sofás, colchões, tapetes, cortinas, viaturas, Cabinda, Angola, preços">
+    <meta name="author" content="Total Higiene">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Nossos arquivos CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- CSS específico para página de serviços -->
+    <style>
+        /* Hero da página de serviços */
+        .services-hero {
+            background: linear-gradient(135deg, var(--azul-escuro), var(--azul-principal));
+            padding: 60px 0 80px;
+            text-align: center;
+            color: var(--branco);
+            margin-top: calc(var(--header-height) * -1);
+            padding-top: calc(var(--header-height) + 60px);
+        }
+        
+        .services-hero__title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--branco);
+        }
+        
+        .services-hero__title span {
+            color: var(--amarelo);
+        }
+        
+        .services-hero__description {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* Filtros de categoria */
+        .services-filter {
+            background: var(--branco);
+            padding: 30px 0;
+            box-shadow: var(--sombra-suave);
+            position: sticky;
+            top: 70px;
+            z-index: 99;
+        }
+        
+        .services-filter__container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .services-filter__btn {
+            padding: 12px 25px;
+            border: 2px solid var(--azul-claro);
+            background: transparent;
+            color: var(--azul-escuro);
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            font-size: 0.95rem;
+        }
+        
+        .services-filter__btn:hover,
+        .services-filter__btn.active {
+            background: var(--azul-claro);
+            color: var(--branco);
+            border-color: var(--azul-claro);
+        }
+        
+        /* Grid de categorias de serviços */
+        .services-category {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--cinza-medio);
+            scroll-margin-top: 140px;
+        }
+        
+        .services-category:last-child {
+            border-bottom: none;
+        }
+        
+        .services-category__header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .services-category__icon {
+            width: 70px;
+            height: 70px;
+            background: var(--azul-claro);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--branco);
+            font-size: 2rem;
+        }
+        
+        .services-category__title {
+            font-size: 2.2rem;
+            color: var(--azul-escuro);
+            margin: 0;
+        }
+        
+        .services-category__title span {
+            color: var(--amarelo);
+            font-size: 1rem;
+            display: block;
+            font-weight: 400;
+            margin-top: 5px;
+        }
+        
+        /* Cards de serviços com efeito hover 3D */
+        .services-grid-small {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .service-mini-card {
+            background: var(--branco);
+            border-radius: 15px;
+            box-shadow: var(--sombra-suave);
+            border: 1px solid var(--cinza-medio);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            min-height: 220px;
+            transform-style: preserve-3d;
+        }
+        
+        .service-mini-card__front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            background: var(--branco);
+            border-radius: 15px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: transform 0.6s ease;
+            transform: rotateY(0deg);
+        }
+        
+        .service-mini-card__back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            background: linear-gradient(135deg, var(--azul-claro), var(--azul-escuro));
+            border-radius: 15px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: transform 0.6s ease;
+            transform: rotateY(180deg);
+            color: var(--branco);
+        }
+        
+        .service-mini-card:hover .service-mini-card__front {
+            transform: rotateY(180deg);
+        }
+        
+        .service-mini-card:hover .service-mini-card__back {
+            transform: rotateY(360deg);
+        }
+        
+        .service-mini-card__front i {
+            font-size: 2.5rem;
+            color: var(--azul-claro);
+            margin-bottom: 15px;
+        }
+        
+        .service-mini-card__front h4 {
+            font-size: 1.3rem;
+            color: var(--azul-escuro);
+            margin-bottom: 10px;
+        }
+        
+        .service-mini-card__front .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--amarelo);
+            margin: 10px 0;
+        }
+        
+        .service-mini-card__front p {
+            color: var(--texto-claro);
+            font-size: 0.95rem;
+        }
+        
+        .service-mini-card__back i {
+            font-size: 3rem;
+            color: var(--whatsapp);
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+        
+        .service-mini-card__back h4 {
+            color: var(--branco);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .service-mini-card__back p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .btn-whatsapp-small {
+            background: var(--whatsapp);
+            color: var(--branco);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: var(--transition-normal);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        
+        .btn-whatsapp-small:hover {
+            background: var(--whatsapp-hover);
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        @keyframes cardPop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        .service-mini-card:hover {
+            animation: cardPop 0.3s ease;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Informações de contato nos serviços */
+        .services-contact-bar {
+            background: var(--amarelo);
+            padding: 30px 0;
+            text-align: center;
+            color: var(--azul-escuro);
+            font-weight: 600;
+        }
+        
+        .services-contact-bar__phones {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            font-size: 1.5rem;
+        }
+        
+        .services-contact-bar__phones i {
+            margin-right: 10px;
+            color: var(--azul-escuro);
+        }
+        
+        .services-contact-bar__email {
+            margin-top: 15px;
+            font-size: 1.2rem;
+        }
+        
+        /* Botão WhatsApp flutuante */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--whatsapp);
+            color: var(--branco);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: var(--sombra-media);
+            z-index: 999;
+            transition: var(--transition-normal);
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background: var(--whatsapp-hover);
+        }
+        
+        @media (max-width: 768px) {
+            .services-category__header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .services-filter__btn {
+                padding: 8px 15px;
+                font-size: 0.8rem;
+            }
+            
+            .services-contact-bar__phones {
+                font-size: 1.2rem;
+                gap: 20px;
+            }
+            
+            .service-mini-card {
+                min-height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header__container">
+            <div class="header__logo">
+                <a href="index.html">
+                    <img src="images/totalHigiene.png" alt="Total Higiene Logo" class="header__logo-img">
+                </a>
+            </div>
+            
+            <nav class="header__nav">
+                <ul class="header__menu">
+                    <li class="header__menu-item"><a href="index.html" class="header__menu-link">Início</a></li>
+                    <li class="header__menu-item"><a href="servicos.html" class="header__menu-link active">Serviços</a></li>
+                    <li class="header__menu-item"><a href="sobre.html" class="header__menu-link">Sobre Nós</a></li>
+                    <li class="header__menu-item"><a href="galeria.html" class="header__menu-link">Galeria</a></li>
+                    <li class="header__menu-item"><a href="contacto.html" class="header__menu-link">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header__social">
+                <a href="https://www.instagram.com/totalhigiene_cabinda" target="_blank" class="header__social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1CXgDH3zJT" target="_blank" class="header__social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@total.higiene" target="_blank" class="header__social-link"><i class="fab fa-tiktok"></i></a>
+            </div>
+            
+            <button class="header__mobile-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu__header">
+            <img src="images/totalHigiene.png" alt="Total Higiene" class="mobile-menu__logo">
+            <button class="mobile-menu__close" id="close-menu-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <ul class="mobile-menu__list">
+            <li class="mobile-menu__item"><a href="index.html" class="mobile-menu__link">Início</a></li>
+            <li class="mobile-menu__item"><a href="servicos.html" class="mobile-menu__link">Serviços</a></li>
+            <li class="mobile-menu__item"><a href="sobre.html" class="mobile-menu__link">Sobre Nós</a></li>
+            <li class="mobile-menu__item"><a href="galeria.html" class="mobile-menu__link">Galeria</a></li>
+            <li class="mobile-menu__item"><a href="contacto.html" class="mobile-menu__link">Contacto</a></li>
+        </ul>
+        <div class="mobile-menu__social">
+            <a href="https://www.instagram.com/totalhigiene_cabinda" target="_blank" class="mobile-menu__social-link"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1CXgDH3zJT" target="_blank" class="mobile-menu__social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/@total.higiene" target="_blank" class="mobile-menu__social-link"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </div>
+
+    <main>
+        <!-- HERO DA PÁGINA DE SERVIÇOS -->
+        <section class="services-hero">
+            <div class="container">
+                <h1 class="services-hero__title" data-aos="fade-up">
+                    NOSSOS <span>SERVIÇOS</span>
+                </h1>
+                <p class="services-hero__description" data-aos="fade-up" data-aos-delay="100">
+                    Conheça todos os serviços da Total Higiene com preços especiais para Cabinda. 
+                    Higienização profissional a seco para sua casa, escritório e veículo.
+                </p>
+            </div>
+        </section>
+
+        <!-- FILTRO RÁPIDO (âncoras) -->
+        <div class="services-filter">
+            <div class="container services-filter__container">
+                <button class="services-filter__btn active" data-filter="all">Todos</button>
+                <button class="services-filter__btn" data-filter="sofas">Sofás</button>
+                <button class="services-filter__btn" data-filter="tapetes">Tapetes</button>
+                <button class="services-filter__btn" data-filter="cortinas">Cortinas</button>
+                <button class="services-filter__btn" data-filter="viaturas">Viaturas</button>
+                <button class="services-filter__btn" data-filter="colchoes">Colchões</button>
+                <button class="services-filter__btn" data-filter="cadeiras">Cadeiras</button>
+            </div>
+        </div>
+
+        <!-- BARRA DE CONTATO RÁPIDA -->
+        <div class="services-contact-bar">
+            <div class="container">
+                <div class="services-contact-bar__phones">
+                    <span><i class="fas fa-phone-alt"></i> +244 921 128 624</span>
+                    <span><i class="fab fa-whatsapp"></i> +244 945 543 959</span>
+                </div>
+                <div class="services-contact-bar__email">
+                    <i class="fas fa-envelope"></i> totalhigienecabinda@gmail.com
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORIA: SOFÁS (NAPA E TECIDO) -->
+        <section id="sofas" class="services-category" data-category="sofas">
+            <div class="container">
+                <div class="services-category__header" data-aos="fade-right">
+                    <div class="services-category__icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <h2 class="services-category__title">
+                        SOFÁS E POLTRONAS
+                        <span>Napa • Tecido • L</span>
+                    </h2>
+                </div>
+                
+                <div class="services-grid-small">
+                    <!-- Sofá Napa - Mono -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-couch"></i>
+                            <h4>Sofá Napa</h4>
+                            <div class="price">10.000 Kz</div>
+                            <p>Mono - Sofá</p>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Sofá Napa - Mono</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Sofá Napa - Mono (10.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Sofá Napa - 2 Lugares -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-couch"></i>
+                            <h4>Sofá Napa</h4>
+                            <div class="price">13.000 Kz</div>
+                            <p>2 Lugares Tradicional</p>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Sofá Napa - 2 Lugares</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Sofá Napa - 2 Lugares (13.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Sofá Napa - 3 Lugares L -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-couch"></i>
+                            <h4>Sofá Napa</h4>
+                            <div class="price">20.000 Kz</div>
+                            <p>3 Lugares em L</p>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Sofá Napa - 3 Lugares L</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Sofá Napa - 3 Lugares L (20.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Sofá Tecido - Mono -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="250">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-couch"></i>
+                            <h4>Sofá Tecido</h4>
+                            <div class="price">12.000 Kz</div>
+                            <p>Mono - Sofá</p>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Sofá Tecido - Mono</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Sofá Tecido - Mono (12.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Sofá Tecido - 2 Lugares -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-couch"></i>
+                            <h4>Sofá Tecido</h4>
+                            <div class="price">18.000 Kz</div>
+                            <p>2 Lugares Tradicional</p>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Sofá Tecido - 2 Lugares</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Sofá Tecido - 2 Lugares (18.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Sofá Tecido - 3 Lugares L -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="350">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-couch"></i>
+                            <h4>Sofá Tecido</h4>
+                            <div class="price">22.000 Kz</div>
+                            <p>3 Lugares em L</p>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Sofá Tecido - 3 Lugares L</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Sofá Tecido - 3 Lugares L (22.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIA: TAPETES E CARPETES -->
+        <section id="tapetes" class="services-category" data-category="tapetes">
+            <div class="container">
+                <div class="services-category__header" data-aos="fade-right">
+                    <div class="services-category__icon">
+                        <i class="fas fa-rug"></i>
+                    </div>
+                    <h2 class="services-category__title">
+                        TAPETES E CARPETES
+                    </h2>
+                </div>
+                
+                <div class="services-grid-small">
+                    <!-- Tapete Pequeno -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-rug"></i>
+                            <h4>Tapete Pequeno</h4>
+                            <div class="price">10.000 Kz</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Tapete Pequeno</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Tapete Pequeno (10.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Tapete Médio -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-rug"></i>
+                            <h4>Tapete Médio</h4>
+                            <div class="price">13.000 Kz</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Tapete Médio</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Tapete Médio (13.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Tapete Grande -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-rug"></i>
+                            <h4>Tapete Grande</h4>
+                            <div class="price">18.000 Kz</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Tapete Grande</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Tapete Grande (18.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Tapete Extra Grande -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="250">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-rug"></i>
+                            <h4>Tapete Extra Grande</h4>
+                            <div class="price">20.000 Kz</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Tapete Extra Grande</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Tapete Extra Grande (20.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Carpete -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-rug"></i>
+                            <h4>Carpetes</h4>
+                            <div class="price">Sob Medida</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Carpete - Sob Medida</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Carpete (Sob Medida)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIA: VIATURAS -->
+        <section id="viaturas" class="services-category" data-category="viaturas">
+            <div class="container">
+                <div class="services-category__header" data-aos="fade-right">
+                    <div class="services-category__icon">
+                        <i class="fas fa-car-side"></i>
+                    </div>
+                    <h2 class="services-category__title">
+                        VIATURAS
+                        <span>Interior Completo</span>
+                    </h2>
+                </div>
+                
+                <div class="services-grid-small">
+                    <!-- Turismo Pequeno -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-car"></i>
+                            <h4>Turismo Pequeno</h4>
+                            <div class="price">10.000 Kz</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Turismo Pequeno</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Turismo Pequeno (10.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Turismo Grande -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-car"></i>
+                            <h4>Turismo Grande</h4>
+                            <div class="price">15.000 Kz</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Turismo Grande</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Turismo Grande (15.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- SUV 5 Lugares -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-truck"></i>
+                            <h4>SUV 5 Lugares</h4>
+                            <div class="price">20.000 Kz</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>SUV 5 Lugares</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para SUV 5 Lugares (20.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- SUV 7 Lugares -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="250">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-truck"></i>
+                            <h4>SUV 7 Lugares</h4>
+                            <div class="price">25.000 Kz</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>SUV 7 Lugares</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para SUV 7 Lugares (25.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIA: CORTINAS -->
+        <section id="cortinas" class="services-category" data-category="cortinas">
+            <div class="container">
+                <div class="services-category__header" data-aos="fade-right">
+                    <div class="services-category__icon">
+                        <i class="fas fa-curtain"></i>
+                    </div>
+                    <h2 class="services-category__title">
+                        CORTINAS
+                    </h2>
+                </div>
+                
+                <div class="services-grid-small">
+                    <!-- Jogo Pequeno -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-curtain"></i>
+                            <h4>Jogo Pequeno</h4>
+                            <div class="price">10.000 Kz</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Cortina - Jogo Pequeno</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Jogo de Cortina Pequeno (10.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Jogo Médio -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-curtain"></i>
+                            <h4>Jogo Médio</h4>
+                            <div class="price">13.000 Kz</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Cortina - Jogo Médio</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Jogo de Cortina Médio (13.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Jogo Grande -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-curtain"></i>
+                            <h4>Jogo Grande</h4>
+                            <div class="price">15.000 Kz</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Cortina - Jogo Grande</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Jogo de Cortina Grande (15.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Extra Grande -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="250">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-curtain"></i>
+                            <h4>Extra Grande</h4>
+                            <div class="price">20.000 Kz</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Cortina - Extra Grande</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Jogo de Cortina Extra Grande (20.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Com Blackout -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-curtain"></i>
+                            <h4>Com Blackout</h4>
+                            <div class="price">25.000 Kz</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Cortina Blackout</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Cortina com Blackout (25.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIA: COLCHÕES -->
+        <section id="colchoes" class="services-category" data-category="colchoes">
+            <div class="container">
+                <div class="services-category__header" data-aos="fade-right">
+                    <div class="services-category__icon">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <h2 class="services-category__title">
+                        COLCHÕES
+                        <span>Todos os tamanhos</span>
+                    </h2>
+                </div>
+                
+                <div class="services-grid-small">
+                    <!-- Berço -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-baby"></i>
+                            <h4>Berço</h4>
+                            <div class="price">15.000 Kz</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Colchão de Berço</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Colchão de Berço (15.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Soteiro -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-bed"></i>
+                            <h4>Soteiro</h4>
+                            <div class="price">10.000 Kz</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Colchão Soteiro</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Colchão Soteiro (10.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Solteiro Maior -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-bed"></i>
+                            <h4>Solteiro Maior</h4>
+                            <div class="price">13.000 Kz</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Colchão Solteiro Maior</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Colchão Solteiro Maior (13.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Casal Normal -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="250">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-bed"></i>
+                            <h4>Casal Normal</h4>
+                            <div class="price">15.000 Kz</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Colchão Casal Normal</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Colchão Casal Normal (15.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Casal Maior -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-bed"></i>
+                            <h4>Casal Maior</h4>
+                            <div class="price">18.000 Kz</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Colchão Casal Maior</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Colchão Casal Maior (18.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Casal King -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="350">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-bed"></i>
+                            <h4>Casal King</h4>
+                            <div class="price">20.000 Kz</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Colchão Casal King</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Colchão Casal King (20.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIA: CADEIRAS E POLTRONAS -->
+        <section id="cadeiras" class="services-category" data-category="cadeiras">
+            <div class="container">
+                <div class="services-category__header" data-aos="fade-right">
+                    <div class="services-category__icon">
+                        <i class="fas fa-chair"></i>
+                    </div>
+                    <h2 class="services-category__title">
+                        CADEIRAS E POLTRONAS
+                    </h2>
+                </div>
+                
+                <div class="services-grid-small">
+                    <!-- Cadeira Napa -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-chair"></i>
+                            <h4>Cadeira Napa</h4>
+                            <div class="price">2.700 Kz</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Cadeira em Napa</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Cadeira em Napa (2.700 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Cadeira Tecido -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-chair"></i>
+                            <h4>Cadeira Tecido</h4>
+                            <div class="price">3.000 Kz</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Cadeira em Tecido</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Cadeira em Tecido (3.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Poltrona Napa -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-chair"></i>
+                            <h4>Poltrona Napa</h4>
+                            <div class="price">8.000 Kz</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Poltrona em Napa</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Poltrona em Napa (8.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Poltrona Tecido -->
+                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="250">
+                        <div class="service-mini-card__front">
+                            <i class="fas fa-chair"></i>
+                            <h4>Poltrona Tecido</h4>
+                            <div class="price">10.000 Kz</div>
+                        </div>
+                        <div class="service-mini-card__back">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>Solicitar Orçamento</h4>
+                            <p>Poltrona em Tecido</p>
+                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Poltrona em Tecido (10.000 Kz)" target="_blank" class="btn-whatsapp-small">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROMOÇÃO ESPECIAL -->
+        <section class="promo-banner">
+            <div class="container">
+                <div class="promo-banner__content" data-aos="zoom-in">
+                    <span class="promo-banner__tag">🔥 CONDIÇÃO ESPECIAL</span>
+                    <h2 class="promo-banner__title">Pagamento no Fim do Mês</h2>
+                    <p class="promo-banner__description">O pagamento dos serviços é realizado no final do mês, válido exclusivamente para clientes que comprovem vínculo de trabalho.</p>
+                    
+                    <div class="promo-banner__condition">
+                        <i class="fas fa-check-circle"></i>
+                        Mediante comprovação de vínculo empregatício
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-section__content" data-aos="zoom-in">
+                    <h2 class="cta-section__title">Solicite seu orçamento</h2>
+                    <p class="cta-section__text">Entre em contato agora mesmo e agende uma avaliação gratuita.</p>
+                    <a href="https://wa.me/244945543959" target="_blank" class="btn btn--whatsapp btn--large">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__about">
+                    <img src="images/totalHigiene.png" alt="Total Higiene" class="footer__logo">
+                    <p class="footer__description">Especialistas em higienização profissional a seco em Cabinda. Devolvemos a pureza e o conforto aos seus espaços com tecnologia alemã.</p>
+                </div>
+                
+                <div class="footer__links">
+                    <h4 class="footer__title">Links Rápidos</h4>
+                    <ul class="footer__menu">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="galeria.html">Galeria</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__services">
+                    <h4 class="footer__title">Serviços</h4>
+                    <ul class="footer__menu">
+                        <li><a href="servicos.html#sofas">Sofás & Poltronas</a></li>
+                        <li><a href="servicos.html#colchoes">Colchões</a></li>
+                        <li><a href="servicos.html#tapetes">Tapetes & Cortinas</a></li>
+                        <li><a href="servicos.html#viaturas">Interior de Viaturas</a></li>
+                        <li><a href="#">Limpeza Pós Obra</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__contact">
+                    <h4 class="footer__title">Contactos</h4>
+                    <ul class="footer__contact-list">
+                        <li><i class="fas fa-phone"></i> 945 543 959</li>
+                        <li><i class="fas fa-phone"></i> 921 128 624</li>
+                        <li><i class="fas fa-envelope"></i> totalhigienecabinda@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Rua Das Forças Armadas, Cabinda</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2026 Total Higiene. Todos os direitos reservados.</p>
+                <p class="footer__credits">"Na Total Higiene o serviço é sério"</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Flutuante -->
+    <a href="https://wa.me/244945543959" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- Script específico para página de serviços -->
+    <script>
+        // Filtro de categorias (rolagem suave)
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.services-filter__btn');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Atualizar botão ativo
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Se for "todos", não faz nada especial
+                    if (filter === 'all') {
+                        window.scrollTo({
+                            top: document.querySelector('.services-filter').offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        return;
+                    }
+                    
+                    // Rolar até a categoria correspondente
+                    const targetSection = document.getElementById(filter);
+                    if (targetSection) {
+                        const headerHeight = document.querySelector('.header').offsetHeight;
+                        const filterHeight = document.querySelector('.services-filter').offsetHeight;
+                        const targetPosition = targetSection.offsetTop - headerHeight - filterHeight - 20;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Destacar botão ativo durante a rolagem
+            window.addEventListener('scroll', function() {
+                const sections = document.querySelectorAll('.services-category');
+                const filterBtns = document.querySelectorAll('.services-filter__btn');
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const filterHeight = document.querySelector('.services-filter').offsetHeight;
+                const scrollPosition = window.scrollY + headerHeight + filterHeight + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+                        filterBtns.forEach(btn => {
+                            btn.classList.remove('active');
+                            if (btn.getAttribute('data-filter') === sectionId) {
+                                btn.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

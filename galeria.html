@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Higiene - Galeria de Resultados em Cabinda</title>
+    
+    <!-- Meta tags para SEO -->
+    <meta name="description" content="Galeria da Total Higiene: veja resultados reais de higienização profissional a seco em Cabinda. Fotos antes e depois, vídeos do processo e conheça nossa equipa.">
+    <meta name="keywords" content="galeria, fotos, vídeos, antes e depois, higienização, limpeza a seco, Cabinda, Angola">
+    <meta name="author" content="Total Higiene">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Lightbox CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+    
+    <!-- Nossos arquivos CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- CSS específico para página de galeria -->
+    <style>
+        /* Hero da página de galeria */
+        .gallery-hero {
+            background: linear-gradient(135deg, var(--azul-escuro), var(--azul-principal));
+            padding: 60px 0 80px;
+            text-align: center;
+            color: var(--branco);
+            margin-top: calc(var(--header-height) * -1);
+            padding-top: calc(var(--header-height) + 60px);
+        }
+        
+        .gallery-hero__title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--branco);
+        }
+        
+        .gallery-hero__title span {
+            color: var(--amarelo);
+        }
+        
+        .gallery-hero__description {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* Filtros de categoria */
+        .gallery-filter {
+            background: var(--branco);
+            padding: 30px 0;
+            box-shadow: var(--sombra-suave);
+            position: sticky;
+            top: 70px;
+            z-index: 99;
+        }
+        
+        .gallery-filter__container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .gallery-filter__btn {
+            padding: 12px 25px;
+            border: 2px solid var(--azul-claro);
+            background: transparent;
+            color: var(--azul-escuro);
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            font-size: 0.95rem;
+        }
+        
+        .gallery-filter__btn:hover,
+        .gallery-filter__btn.active {
+            background: var(--azul-claro);
+            color: var(--branco);
+            border-color: var(--azul-claro);
+        }
+        
+        /* Seção de vídeos em destaque */
+        .video-highlight {
+            padding: 60px 0;
+            background: var(--cinza-claro);
+        }
+        
+        .section-title-small {
+            font-size: 2rem;
+            color: var(--azul-escuro);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title-small::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--amarelo);
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .video-card {
+            background: var(--branco);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--sombra-suave);
+            transition: var(--transition-normal);
+            cursor: pointer;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--sombra-media);
+        }
+        
+        .video-card__thumbnail {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .video-card__thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+        
+        .video-card:hover .video-card__thumbnail img {
+            transform: scale(1.1);
+        }
+        
+        .video-card__play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: var(--amarelo);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--azul-escuro);
+            font-size: 1.5rem;
+            opacity: 0.9;
+            transition: var(--transition-normal);
+        }
+        
+        .video-card:hover .video-card__play {
+            background: var(--whatsapp);
+            color: var(--branco);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .video-card__duration {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--branco);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .video-card__info {
+            padding: 20px;
+        }
+        
+        .video-card__title {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--azul-escuro);
+        }
+        
+        .video-card__desc {
+            color: var(--texto-claro);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        /* Grid de galeria */
+        .gallery-grid-section {
+            padding: 60px 0;
+            background: var(--branco);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--sombra-suave);
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--sombra-media);
+        }
+        
+        .gallery-item__image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .gallery-item__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+        
+        .gallery-item:hover .gallery-item__image img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item__overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(8, 31, 74, 0.9), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: var(--transition-normal);
+        }
+        
+        .gallery-item:hover .gallery-item__overlay {
+            opacity: 1;
+        }
+        
+        .gallery-item__title {
+            color: var(--branco);
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            transform: translateY(20px);
+            transition: transform 0.3s ease 0.1s;
+        }
+        
+        .gallery-item:hover .gallery-item__title {
+            transform: translateY(0);
+        }
+        
+        .gallery-item__category {
+            color: var(--amarelo);
+            font-size: 0.9rem;
+            font-weight: 600;
+            transform: translateY(20px);
+            transition: transform 0.3s ease 0.2s;
+        }
+        
+        .gallery-item:hover .gallery-item__category {
+            transform: translateY(0);
+        }
+        
+        /* Badges para tipos de mídia */
+        .gallery-item__badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--amarelo);
+            color: var(--azul-escuro);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            z-index: 2;
+            box-shadow: var(--sombra-media);
+        }
+        
+        .gallery-item__badge.video {
+            background: var(--whatsapp);
+            color: var(--branco);
+        }
+        
+        /* Seção da equipa */
+        .team-section {
+            padding: 60px 0;
+            background: var(--cinza-claro);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .team-card {
+            background: var(--branco);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--sombra-suave);
+            transition: var(--transition-normal);
+            text-align: center;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--sombra-media);
+        }
+        
+        .team-card__image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .team-card__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+        
+        .team-card:hover .team-card__image img {
+            transform: scale(1.1);
+        }
+        
+        .team-card__info {
+            padding: 20px;
+        }
+        
+        .team-card__name {
+            font-size: 1.3rem;
+            color: var(--azul-escuro);
+            margin-bottom: 5px;
+        }
+        
+        .team-card__role {
+            color: var(--azul-claro);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .team-card__desc {
+            color: var(--texto-claro);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .team-card__social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .team-card__social a {
+            width: 35px;
+            height: 35px;
+            background: var(--cinza-claro);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--azul-escuro);
+            transition: var(--transition-normal);
+        }
+        
+        .team-card__social a:hover {
+            background: var(--amarelo);
+            color: var(--azul-escuro);
+            transform: translateY(-3px);
+        }
+        
+        /* Seção de processo */
+        .process-section {
+            padding: 60px 0;
+            background: var(--branco);
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .process-step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .process-step__number {
+            width: 50px;
+            height: 50px;
+            background: var(--azul-claro);
+            color: var(--branco);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            width: 100%;
+            height: 2px;
+            background: var(--cinza-medio);
+            z-index: 1;
+        }
+        
+        .process-step:last-child::before {
+            display: none;
+        }
+        
+        .process-step__image {
+            height: 150px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        
+        .process-step__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-normal);
+        }
+        
+        .process-step:hover .process-step__image img {
+            transform: scale(1.05);
+        }
+        
+        .process-step__title {
+            font-size: 1.2rem;
+            color: var(--azul-escuro);
+            margin-bottom: 10px;
+        }
+        
+        .process-step__desc {
+            color: var(--texto-claro);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        /* Botão carregar mais */
+        .load-more {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .load-more__btn {
+            background: transparent;
+            border: 2px solid var(--azul-claro);
+            color: var(--azul-claro);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+        
+        .load-more__btn:hover {
+            background: var(--azul-claro);
+            color: var(--branco);
+            transform: translateY(-3px);
+            box-shadow: var(--sombra-azul);
+        }
+        
+        .load-more__btn i {
+            margin-left: 8px;
+            transition: transform var(--transition-normal);
+        }
+        
+        .load-more__btn:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Modal de vídeo */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .video-modal.active {
+            display: flex;
+        }
+        
+        .video-modal__content {
+            width: 90%;
+            max-width: 800px;
+            position: relative;
+        }
+        
+        .video-modal__close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: var(--branco);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+        
+        .video-modal__close:hover {
+            color: var(--amarelo);
+            transform: scale(1.1);
+        }
+        
+        .video-modal__video {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .video-modal__video iframe,
+        .video-modal__video video {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .gallery-filter__btn {
+                padding: 8px 15px;
+                font-size: 0.8rem;
+            }
+            
+            .process-step::before {
+                display: none;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header__container">
+            <div class="header__logo">
+                <a href="index.html">
+                    <img src="images/totalHigiene.png" alt="Total Higiene Logo" class="header__logo-img">
+                </a>
+            </div>
+            
+           <nav class="header__nav">
+                <ul class="header__menu">
+                    <li class="header__menu-item"><a href="index.html" class="header__menu-link">Início</a></li>
+                    <li class="header__menu-item"><a href="servicos.html" class="header__menu-link active">Serviços</a></li>
+                    <li class="header__menu-item"><a href="sobre.html" class="header__menu-link">Sobre Nós</a></li>
+                    <li class="header__menu-item"><a href="galeria.html" class="header__menu-link">Galeria</a></li>
+                    <li class="header__menu-item"><a href="contacto.html" class="header__menu-link">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header__social">
+                <a href="https://www.instagram.com/totalhigiene_cabinda" target="_blank" class="header__social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1CXgDH3zJT" target="_blank" class="header__social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@total.higiene" target="_blank" class="header__social-link"><i class="fab fa-tiktok"></i></a>
+            </div>
+            
+            <button class="header__mobile-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu__header">
+            <img src="images/totalHigiene.png" alt="Total Higiene" class="mobile-menu__logo">
+            <button class="mobile-menu__close" id="close-menu-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <ul class="mobile-menu__list">
+            <li class="mobile-menu__item"><a href="index.html" class="mobile-menu__link">Início</a></li>
+            <li class="mobile-menu__item"><a href="servicos.html" class="mobile-menu__link">Serviços</a></li>
+            <li class="mobile-menu__item"><a href="index.html#sobre" class="mobile-menu__link">Sobre Nós</a></li>
+            <li class="mobile-menu__item"><a href="galeria.html" class="mobile-menu__link">Galeria</a></li>
+            <li class="mobile-menu__item"><a href="index.html#contacto" class="mobile-menu__link">Contacto</a></li>
+        </ul>
+        <div class="mobile-menu__social">
+            <a href="https://www.instagram.com/totalhigiene_cabinda" target="_blank" class="mobile-menu__social-link"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1CXgDH3zJT" target="_blank" class="mobile-menu__social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/@total.higiene" target="_blank" class="mobile-menu__social-link"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </div>
+
+    <main>
+        <!-- HERO DA PÁGINA DE GALERIA -->
+        <section class="gallery-hero">
+            <div class="container">
+                <h1 class="gallery-hero__title" data-aos="fade-up">
+                    GALERIA <span>TOTAL HIGIENE</span>
+                </h1>
+                <p class="gallery-hero__description" data-aos="fade-up" data-aos-delay="100">
+                    Resultados reais do nosso trabalho em Cabinda. Veja antes e depois, 
+                    vídeos do processo e conheça a equipa que torna tudo possível.
+                </p>
+            </div>
+        </section>
+
+        <!-- FILTROS -->
+        <div class="gallery-filter">
+            <div class="container gallery-filter__container">
+                <button class="gallery-filter__btn active" data-filter="all">Todos</button>
+                <button class="gallery-filter__btn" data-filter="antes-depois">Antes & Depois</button>
+                <button class="gallery-filter__btn" data-filter="videos">Vídeos</button>
+                <button class="gallery-filter__btn" data-filter="equipa">Equipa</button>
+                <button class="gallery-filter__btn" data-filter="processo">Processo</button>
+            </div>
+        </div>
+
+        <!-- VÍDEOS EM DESTAQUE -->
+        <section class="video-highlight" id="videos">
+            <div class="container">
+                <h2 class="section-title-small" data-aos="fade-right">📹 Vídeos em Destaque</h2>
+                <div class="video-grid" id="video-grid-container"></div>
+            </div>
+        </section>
+
+        <!-- GALERIA DE FOTOS -->
+        <section class="gallery-grid-section" id="galeria-fotos">
+            <div class="container">
+                <h2 class="section-title-small" data-aos="fade-right">📸 Resultados Reais</h2>
+                <div class="gallery-grid" id="gallery-grid-container"></div>
+                
+                <!-- Botão Carregar Mais -->
+                <div class="load-more" id="load-more-container">
+                    <button class="load-more__btn" id="load-more-btn">
+                        Carregar mais <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONHEÇA A EQUIPA -->
+        <section class="team-section" id="equipa">
+            <div class="container">
+                <h2 class="section-title-small" data-aos="fade-right">👥 Conheça a Nossa Equipa</h2>
+                <div class="team-grid" id="team-grid-container"></div>
+            </div>
+        </section>
+
+        <!-- NOSSO PROCESSO -->
+        <section class="process-section" id="processo">
+            <div class="container">
+                <h2 class="section-title-small" data-aos="fade-right">⚙️ Nosso Processo</h2>
+                <div class="process-steps" id="process-steps-container"></div>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-section__content" data-aos="zoom-in">
+                    <h2 class="cta-section__title">Resultados que falam por si</h2>
+                    <p class="cta-section__text">Agende uma avaliação gratuita e tenha o mesmo resultado na sua casa ou veículo.</p>
+                    <a href="https://wa.me/244945543959" target="_blank" class="btn btn--whatsapp btn--large">
+                        <i class="fab fa-whatsapp"></i> Solicitar Avaliação
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__about">
+                    <img src="images/totalHigiene.png" alt="Total Higiene" class="footer__logo">
+                    <p class="footer__description">Especialistas em higienização profissional a seco em Cabinda. Devolvemos a pureza e o conforto aos seus espaços com tecnologia alemã.</p>
+                </div>
+                
+                <div class="footer__links">
+                    <h4 class="footer__title">Links Rápidos</h4>
+                    <ul class="footer__menu">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="index.html#sobre">Sobre Nós</a></li>
+                        <li><a href="galeria.html">Galeria</a></li>
+                        <li><a href="index.html#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__services">
+                    <h4 class="footer__title">Serviços</h4>
+                    <ul class="footer__menu">
+                        <li><a href="servicos.html#sofas">Sofás & Poltronas</a></li>
+                        <li><a href="servicos.html#colchoes">Colchões</a></li>
+                        <li><a href="servicos.html#tapetes">Tapetes & Cortinas</a></li>
+                        <li><a href="servicos.html#viaturas">Interior de Viaturas</a></li>
+                        <li><a href="#">Limpeza Pós Obra</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__contact">
+                    <h4 class="footer__title">Contactos</h4>
+                    <ul class="footer__contact-list">
+                        <li><i class="fas fa-phone"></i> 945 543 959</li>
+                        <li><i class="fas fa-phone"></i> 921 128 624</li>
+                        <li><i class="fas fa-envelope"></i> totalhigienecabinda@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Rua Das Forças Armadas, Cabinda</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2026 Total Higiene. Todos os direitos reservados.</p>
+                <p class="footer__credits">"Na Total Higiene o serviço é sério"</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL DE VÍDEO -->
+    <div class="video-modal" id="video-modal">
+        <div class="video-modal__content">
+            <span class="video-modal__close" id="close-modal">&times;</span>
+            <div class="video-modal__video" id="video-modal-container">
+                <!-- Vídeo será inserido aqui via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- Script da Galeria (simulando backend) -->
+    <script>
+        // ===== INICIALIZAÇÃO =====
+        document.addEventListener('DOMContentLoaded', function() {
+            initGaleria();
+            initFiltros();
+            initVideoModal();
+            initLoadMore();
+        });
+
+        // ===== DADOS DA GALERIA (SIMULANDO BACKEND) =====
+        const galeriaData = {
+            videos: [
+                {
+                    id: 1,
+                    titulo: "Higienização de Sofá - Processo Completo",
+                    descricao: "Veja como renovamos este sofá em Cabinda",
+                    thumbnail: "images/thumb-sofa.jpg",
+                    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Exemplo
+                    categoria: "videos",
+                    destaque: true,
+                    duracao: "2:30"
+                },
+                {
+                    id: 2,
+                    titulo: "Antes e Depois - Colchão",
+                    descricao: "Eliminação de ácaros e manchas profundas",
+                    thumbnail: "images/thumb-colchao.jpg",
+                    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                    categoria: "videos",
+                    destaque: true,
+                    duracao: "1:45"
+                },
+                {
+                    id: 3,
+                    titulo: "Limpeza de Interior de Viatura",
+                    descricao: "SUV 7 lugares completamente renovado",
+                    thumbnail: "images/thumb-carro.jpg",
+                    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                    categoria: "videos",
+                    destaque: true,
+                    duracao: "3:15"
+                },
+                {
+                    id: 4,
+                    titulo: "Tapete Antes e Depois",
+                    descricao: "Remoção de manchas difíceis",
+                    thumbnail: "images/thumb-tapete.jpg",
+                    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                    categoria: "videos",
+                    destaque: false,
+                    duracao: "2:00"
+                }
+            ],
+            
+            fotos: [
+                {
+                    id: 5,
+                    titulo: "Sofá Antes",
+                    descricao: "Sofá com manchas profundas e desgaste",
+                    imagem: "images/antes-sofa-1.jpg",
+                    categoria: "antes",
+                    tipo: "antes-depois",
+                    parId: 6
+                },
+                {
+                    id: 6,
+                    titulo: "Sofá Depois",
+                    descricao: "Mesmo sofá após higienização profissional",
+                    imagem: "images/depois-sofa-1.jpg",
+                    categoria: "depois",
+                    tipo: "antes-depois",
+                    parId: 5
+                },
+                {
+                    id: 7,
+                    titulo: "Colchão Antes",
+                    descricao: "Colchão com manchas e ácaros",
+                    imagem: "images/antes-colchao-1.jpg",
+                    categoria: "antes",
+                    tipo: "antes-depois",
+                    parId: 8
+                },
+                {
+                    id: 8,
+                    titulo: "Colchão Depois",
+                    descricao: "Colchão renovado e livre de ácaros",
+                    imagem: "images/depois-colchao-1.jpg",
+                    categoria: "depois",
+                    tipo: "antes-depois",
+                    parId: 7
+                },
+                {
+                    id: 9,
+                    titulo: "Cadeira de Escritório",
+                    descricao: "Antes e depois em uma cadeira",
+                    imagem: "images/cadeira-antes-depois.jpg",
+                    categoria: "antes-depois",
+                    tipo: "antes-depois"
+                },
+                {
+                    id: 10,
+                    titulo: "Tapete Persa",
+                    descricao: "Limpeza profunda em tapete persa",
+                    imagem: "images/tapete-persa.jpg",
+                    categoria: "antes-depois",
+                    tipo: "antes-depois"
+                }
+            ],
+            
+            equipa: [
+                {
+                    id: 11,
+                    nome: "João Maria",
+                    funcao: "Técnico Especialista",
+                    foto: "images/equipa/joao.jpg",
+                    descricao: "5 anos de experiência em higienização de estofados e viaturas.",
+                    redes: {
+                        instagram: "#",
+                        facebook: "#"
+                    }
+                },
+                {
+                    id: 12,
+                    nome: "Maria Antónia",
+                    funcao: "Coordenadora de Operações",
+                    foto: "images/equipa/maria.jpg",
+                    descricao: "Garante a qualidade e satisfação dos clientes.",
+                    redes: {
+                        instagram: "#",
+                        facebook: "#"
+                    }
+                },
+                {
+                    id: 13,
+                    nome: "Pedro Afonso",
+                    funcao: "Técnico de Higienização",
+                    foto: "images/equipa/pedro.jpg",
+                    descricao: "Especialista em interiores de viaturas.",
+                    redes: {
+                        instagram: "#",
+                        facebook: "#"
+                    }
+                },
+                {
+                    id: 14,
+                    nome: "Ana Paula",
+                    funcao: "Atendimento ao Cliente",
+                    foto: "images/equipa/ana.jpg",
+                    descricao: "Pronta para ajudar com orçamentos e agendamentos.",
+                    redes: {
+                        instagram: "#",
+                        facebook: "#"
+                    }
+                }
+            ],
+            
+            processo: [
+                {
+                    id: 15,
+                    titulo: "Avaliação Inicial",
+                    descricao: "Verificamos o estado do estofado e identificamos as necessidades.",
+                    imagem: "images/processo/avaliacao.jpg",
+                    ordem: 1
+                },
+                {
+                    id: 16,
+                    titulo: "Higienização Profissional",
+                    descricao: "Aplicamos a técnica a seco com equipamento alemão.",
+                    imagem: "images/processo/higienizacao.jpg",
+                    ordem: 2
+                },
+                {
+                    id: 17,
+                    titulo: "Secagem Rápida",
+                    descricao: "Secagem completa em até 2 horas, sem mofo ou odores.",
+                    imagem: "images/processo/secagem.jpg",
+                    ordem: 3
+                },
+                {
+                    id: 18,
+                    titulo: "Resultado Final",
+                    descricao: "Estofado renovado, limpo e pronto para uso.",
+                    imagem: "images/processo/resultado.jpg",
+                    ordem: 4
+                }
+            ]
+        };
+
+        // ===== RENDERIZAR VÍDEOS =====
+        function renderVideos() {
+            const container = document.getElementById('video-grid-container');
+            if (!container) return;
+            
+            const videosDestaque = galeriaData.videos.filter(v => v.destaque);
+            
+            let html = '';
+            videosDestaque.forEach(video => {
+                html += `
+                    <div class="video-card" data-video-id="${video.id}" data-video-url="${video.videoUrl}">
+                        <div class="video-card__thumbnail">
+                            <img src="${video.thumbnail}" alt="${video.titulo}" onerror="this.src='https://via.placeholder.com/300x200?text=Total+Higiene'">
+                            <div class="video-card__play">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <span class="video-card__duration">${video.duracao}</span>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">${video.titulo}</h3>
+                            <p class="video-card__desc">${video.descricao}</p>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+            
+            // Adicionar evento de clique aos vídeos
+            document.querySelectorAll('.video-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const videoUrl = this.getAttribute('data-video-url');
+                    abrirModalVideo(videoUrl);
+                });
+            });
+        }
+
+        // ===== RENDERIZAR GALERIA DE FOTOS =====
+        let fotosVisiveis = 6;
+        const fotosPorVez = 6;
+        
+        function renderFotos(filtro = 'all') {
+            const container = document.getElementById('gallery-grid-container');
+            if (!container) return;
+            
+            let fotosFiltradas = [...galeriaData.fotos];
+            
+            if (filtro === 'antes-depois') {
+                fotosFiltradas = fotosFiltradas.filter(f => f.tipo === 'antes-depois');
+            } else if (filtro === 'videos') {
+                // Não mostrar fotos na categoria vídeos
+                fotosFiltradas = [];
+            } else if (filtro === 'equipa') {
+                fotosFiltradas = [];
+            } else if (filtro === 'processo') {
+                fotosFiltradas = [];
+            }
+            
+            const fotosParaMostrar = fotosFiltradas.slice(0, fotosVisiveis);
+            
+            if (fotosParaMostrar.length === 0) {
+                container.innerHTML = '<p style="text-align: center; grid-column: 1/-1; padding: 50px;">Nenhuma foto encontrada nesta categoria.</p>';
+                return;
+            }
+            
+            let html = '';
+            fotosParaMostrar.forEach(foto => {
+                const badge = foto.categoria === 'antes' ? 'ANTES' : (foto.categoria === 'depois' ? 'DEPOIS' : '');
+                const badgeClass = foto.categoria === 'antes' ? 'badge-antes' : (foto.categoria === 'depois' ? 'badge-depois' : '');
+                
+                html += `
+                    <div class="gallery-item" data-categoria="${foto.tipo}">
+                        <div class="gallery-item__image">
+                            <img src="${foto.imagem}" alt="${foto.titulo}" onerror="this.src='https://via.placeholder.com/400x300?text=Total+Higiene'">
+                        </div>
+                        <div class="gallery-item__overlay">
+                            <h3 class="gallery-item__title">${foto.titulo}</h3>
+                            <span class="gallery-item__category">${badge || 'Antes & Depois'}</span>
+                        </div>
+                        ${badge ? `<div class="gallery-item__badge ${badgeClass}">${badge}</div>` : ''}
+                        <a href="${foto.imagem}" data-lightbox="galeria" data-title="${foto.titulo} - ${foto.descricao}" style="display: none;">Ver</a>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+            
+            // Esconder botão load more se não houver mais fotos
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            const loadMoreContainer = document.getElementById('load-more-container');
+            
+            if (fotosVisiveis >= fotosFiltradas.length) {
+                loadMoreContainer.style.display = 'none';
+            } else {
+                loadMoreContainer.style.display = 'block';
+            }
+            
+            // Reinicializar lightbox para as novas imagens
+            if (window.lightbox) {
+                lightbox.init();
+            }
+        }
+
+        // ===== RENDERIZAR EQUIPA =====
+        function renderEquipa() {
+            const container = document.getElementById('team-grid-container');
+            if (!container) return;
+            
+            let html = '';
+            galeriaData.equipa.forEach(membro => {
+                html += `
+                    <div class="team-card" data-aos="fade-up">
+                        <div class="team-card__image">
+                            <img src="${membro.foto}" alt="${membro.nome}" onerror="this.src='https://via.placeholder.com/300x300?text=Equipa+Total+Higiene'">
+                        </div>
+                        <div class="team-card__info">
+                            <h3 class="team-card__name">${membro.nome}</h3>
+                            <p class="team-card__role">${membro.funcao}</p>
+                            <p class="team-card__desc">${membro.descricao}</p>
+                            <div class="team-card__social">
+                                <a href="${membro.redes.instagram}" target="_blank"><i class="fab fa-instagram"></i></a>
+                                <a href="${membro.redes.facebook}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        // ===== RENDERIZAR PROCESSO =====
+        function renderProcesso() {
+            const container = document.getElementById('process-steps-container');
+            if (!container) return;
+            
+            const processoOrdenado = galeriaData.processo.sort((a, b) => a.ordem - b.ordem);
+            
+            let html = '';
+            processoOrdenado.forEach(passo => {
+                html += `
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="${passo.ordem * 100}">
+                        <div class="process-step__number">${passo.ordem}</div>
+                        <div class="process-step__image">
+                            <img src="${passo.imagem}" alt="${passo.titulo}" onerror="this.src='https://via.placeholder.com/300x200?text=Processo'">
+                        </div>
+                        <h3 class="process-step__title">${passo.titulo}</h3>
+                        <p class="process-step__desc">${passo.descricao}</p>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        // ===== FILTROS =====
+        function initFiltros() {
+            const filterBtns = document.querySelectorAll('.gallery-filter__btn');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const filtro = this.getAttribute('data-filter');
+                    
+                    // Atualizar botão ativo
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Resetar fotos visíveis
+                    fotosVisiveis = fotosPorVez;
+                    
+                    // Renderizar conforme filtro
+                    renderFotos(filtro);
+                    
+                    // Mostrar/esconder seções
+                    document.getElementById('videos').style.display = filtro === 'videos' || filtro === 'all' ? 'block' : 'none';
+                    document.getElementById('equipa').style.display = filtro === 'equipa' || filtro === 'all' ? 'block' : 'none';
+                    document.getElementById('processo').style.display = filtro === 'processo' || filtro === 'all' ? 'block' : 'none';
+                    document.getElementById('galeria-fotos').style.display = filtro === 'antes-depois' || filtro === 'all' ? 'block' : 'none';
+                    
+                    // Rolar suavemente para o topo da galeria
+                    window.scrollTo({
+                        top: document.querySelector('.gallery-filter').offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        }
+
+        // ===== LOAD MORE =====
+        function initLoadMore() {
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            
+            loadMoreBtn.addEventListener('click', function() {
+                fotosVisiveis += fotosPorVez;
+                
+                const filtroAtivo = document.querySelector('.gallery-filter__btn.active').getAttribute('data-filter');
+                renderFotos(filtroAtivo);
+            });
+        }
+
+        // ===== MODAL DE VÍDEO =====
+        function initVideoModal() {
+            const modal = document.getElementById('video-modal');
+            const closeBtn = document.getElementById('close-modal');
+            
+            closeBtn.addEventListener('click', function() {
+                modal.classList.remove('active');
+                document.getElementById('video-modal-container').innerHTML = '';
+            });
+            
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.getElementById('video-modal-container').innerHTML = '';
+                }
+            });
+        }
+        
+        function abrirModalVideo(videoUrl) {
+            const modal = document.getElementById('video-modal');
+            const container = document.getElementById('video-modal-container');
+            
+            container.innerHTML = `
+                <iframe src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
+            `;
+            
+            modal.classList.add('active');
+        }
+
+        // ===== INICIALIZAR GALERIA =====
+        function initGaleria() {
+            renderVideos();
+            renderFotos('all');
+            renderEquipa();
+            renderProcesso();
+        }
+
+        // ===== ACTIVE MENU ON SCROLL =====
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.header__menu-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id') || '';
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

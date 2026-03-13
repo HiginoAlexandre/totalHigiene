@@ -1,0 +1,55 @@
+/* ===== VARIÁVEIS GLOBAIS ===== */
+:root {
+    /* CORES PRINCIPAIS */
+    --azul-principal: #0D2F6F;
+    --azul-escuro: #081F4A;
+    --azul-claro: #2C5CC5;
+    --azul-hover: #1E4FB3;
+    
+    /* DESTAQUE DO LOGO */
+    --amarelo: #F2B705;
+    --amarelo-escuro: #D99A00;
+    
+    /* NEUTROS */
+    --branco: #FFFFFF;
+    --cinza-claro: #F5F7FA;
+    --cinza-medio: #E4EAF2;
+    --cinza-escuro: #2D3748;
+    
+    /* TEXTO */
+    --texto-escuro: #1A202C;
+    --texto-claro: #5A6B7C;
+    
+    /* CORES DE STATUS */
+    --whatsapp: #25D366;
+    --whatsapp-hover: #20B358;
+    --success: #28A745;
+    --warning: #FFC107;
+    --danger: #DC3545;
+    
+    /* Fontes */
+    --fonte-titulo: 'Montserrat', sans-serif;
+    --fonte-texto: 'Inter', sans-serif;
+    
+    /* Tamanhos */
+    --container-width: 1200px;
+    --header-height: 90px;
+    
+    /* Transições */
+    --transition-normal: all 0.3s ease;
+    --transition-slow: all 0.5s ease;
+    --transition-fast: all 0.2s ease;
+    
+    /* Sombras */
+    --sombra-suave: 0 10px 30px rgba(8, 31, 74, 0.05);
+    --sombra-media: 0 15px 40px rgba(8, 31, 74, 0.1);
+    --sombra-forte: 0 20px 50px rgba(8, 31, 74, 0.15);
+    --sombra-azul: 0 10px 30px rgba(44, 92, 197, 0.2);
+    --sombra-amarela: 0 10px 30px rgba(242, 183, 5, 0.2);
+    
+    /* Bordas */
+    --border-radius-pequeno: 10px;
+    --border-radius-medio: 20px;
+    --border-radius-grande: 30px;
+    --border-radius-circulo: 50px;
+}
