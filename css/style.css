@@ -16,7 +16,7 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     background-color: var(--branco);
-    padding-top: calc(var(--header-height) + 5px);
+    padding-top: calc(var(--header-height));
 }
 
 .container {
@@ -319,11 +319,11 @@ h1, h2, h3, h4, h5, h6 {
 /* ===== HERO SECTION ===== */
 .hero {
     position: relative;
-    height: 100vh;
-    min-height: 700px;
+    min-height: 100vh;  /* MUDA de height para min-height */
     display: flex;
     align-items: center;
     overflow: hidden;
+    padding: 120px 0 80px;  /* ADICIONA padding superior e inferior */
 }
 
 .hero__video-container {
