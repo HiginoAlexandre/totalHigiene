@@ -8,9 +8,9 @@
 
     <!-- Meta tags para SEO -->
     <meta name="description"
-        content="Conheça todos os serviços da Total Higiene: higienização de sofás, colchões, tapetes, cortinas, viaturas, fumigação, desinfecção e muito mais. Preços especiais em Cabinda.">
+        content="Conheça todos os serviços da Total Higiene: higienização de sofás, colchões, tapetes, cortinas, viaturas e muito mais. Preços especiais em Cabinda.">
     <meta name="keywords"
-        content="higienização, limpeza a seco, sofás, colchões, tapetes, cortinas, viaturas, fumigação, desinfecção, lavagem de piso, Cabinda, Angola, preços">
+        content="higienização, limpeza a seco, sofás, colchões, tapetes, cortinas, viaturas, Cabinda, Angola, preços">
     <meta name="author" content="Total Higiene">
 
     <!-- Favicon -->
@@ -165,6 +165,7 @@
             overflow: hidden;
             cursor: pointer;
             min-height: 180px;
+            /* REDUZIDO de 280px para 220px */
             transform-style: preserve-3d;
             width: 100%;
             aspect-ratio: auto;
@@ -179,6 +180,7 @@
             background: linear-gradient(145deg, var(--branco), #fafcff);
             border-radius: 20px;
             padding: clamp(15px, 3vw, 20px);
+            /* REDUZIDO */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -197,6 +199,7 @@
             background: linear-gradient(135deg, var(--azul-claro), var(--azul-escuro));
             border-radius: 20px;
             padding: clamp(15px, 3vw, 20px);
+            /* REDUZIDO */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -220,10 +223,13 @@
         /* Ícone da frente - REDUZIDO */
         .service-mini-card__front i {
             font-size: clamp(1.8rem, 3.5vw, 2.2rem);
+            /* REDUZIDO */
             color: var(--azul-claro);
             margin-bottom: clamp(5px, 1.5vh, 10px);
+            /* REDUZIDO */
             background: rgba(44, 92, 197, 0.1);
             padding: clamp(12px, 2.5vw, 15px);
+            /* REDUZIDO */
             border-radius: 60px;
             transition: all 0.3s ease;
         }
@@ -237,86 +243,70 @@
         /* Título da frente - REDUZIDO */
         .service-mini-card__front h4 {
             font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            /* REDUZIDO */
             color: var(--azul-escuro);
             margin-bottom: clamp(4px, 1vh, 8px);
+            /* REDUZIDO */
             font-weight: 700;
             letter-spacing: -0.5px;
             line-height: 1.2;
             word-break: break-word;
         }
 
-        /* Preço normal */
-        .price {
+        /* Preço - REDUZIDO */
+        .service-mini-card__front .price {
             font-size: clamp(1.3rem, 3vw, 1.6rem);
+            /* REDUZIDO */
             font-weight: 800;
             color: var(--amarelo);
             margin: clamp(4px, 1vh, 8px) 0 clamp(2px, 0.5vh, 4px);
+            /* REDUZIDO */
             text-shadow: 2px 2px 0 rgba(242, 183, 5, 0.1);
             position: relative;
             display: inline-block;
             line-height: 1.2;
         }
 
-        .price::before {
+        .service-mini-card__front .price::before {
             content: '';
             position: absolute;
             top: -5px;
             left: -10px;
             width: 30px;
+            /* REDUZIDO */
             height: 30px;
+            /* REDUZIDO */
             background: rgba(242, 183, 5, 0.1);
             border-radius: 50%;
             z-index: -1;
-        }
-
-        /* Preço "Sob Consulta" com ícone */
-        .price.consulta {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: linear-gradient(145deg, var(--azul-claro), var(--azul-escuro));
-            color: var(--branco) !important;
-            padding: 6px 15px;
-            border-radius: 50px;
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
-            font-weight: 600;
-            text-shadow: none;
-            margin: 8px 0;
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .price.consulta::before {
-            display: none;
-        }
-
-        .price.consulta i {
-            font-size: 0.9rem;
-            color: var(--amarelo);
         }
 
         /* Descrição - REDUZIDA */
         .service-mini-card__front p {
             color: var(--texto-claro);
             font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+            /* REDUZIDO */
             font-weight: 500;
             background: var(--cinza-claro);
             padding: clamp(4px, 1vh, 6px) clamp(8px, 1.5vw, 12px);
+            /* REDUZIDO */
             border-radius: 50px;
             margin-top: clamp(3px, 0.8vh, 5px);
+            /* REDUZIDO */
             line-height: 1.3;
             width: 100%;
             max-width: 160px;
+            /* REDUZIDO */
             word-break: break-word;
         }
 
         /* Ícone do verso - REDUZIDO */
         .service-mini-card__back i {
             font-size: clamp(2.2rem, 4vw, 2.5rem);
+            /* REDUZIDO */
             color: var(--amarelo);
             margin-bottom: clamp(5px, 1.5vh, 10px);
+            /* REDUZIDO */
             filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
             animation: pulse 2s infinite;
         }
@@ -325,7 +315,9 @@
         .service-mini-card__back h4 {
             color: var(--branco);
             margin-bottom: clamp(4px, 1vh, 8px);
+            /* REDUZIDO */
             font-size: clamp(1rem, 2.5vw, 1.2rem);
+            /* REDUZIDO */
             font-weight: 700;
             line-height: 1.2;
             word-break: break-word;
@@ -335,11 +327,14 @@
         .service-mini-card__back p {
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: clamp(5px, 1.5vh, 10px);
+            /* REDUZIDO */
             font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+            /* REDUZIDO */
             line-height: 1.4;
             font-weight: 400;
             word-break: break-word;
             padding: 0 5px;
+            /* REDUZIDO */
         }
 
         /* Botão WhatsApp - REDUZIDO */
@@ -348,27 +343,34 @@
             color: var(--azul-escuro);
             border: none;
             padding: clamp(8px, 2vh, 10px) clamp(14px, 2.5vw, 18px);
+            /* REDUZIDO */
             border-radius: 60px;
             font-weight: 700;
             font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+            /* REDUZIDO */
             text-decoration: none;
             margin-top: 5px;
+            /* REDUZIDO */
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
+            /* REDUZIDO */
             cursor: pointer;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
             letter-spacing: 0.5px;
             width: auto;
             min-width: 110px;
+            /* REDUZIDO */
             max-width: 150px;
+            /* REDUZIDO */
             white-space: nowrap;
         }
 
         .btn-whatsapp-small i {
             font-size: 0.9rem;
+            /* REDUZIDO */
             color: var(--azul-escuro);
             animation: none !important;
         }
@@ -395,7 +397,9 @@
 
             .service-mini-card {
                 min-height: 160px;
+                /* Altura menor para telas muito largas */
                 aspect-ratio: 4/3;
+                /* Proporção mais retangular horizontal */
             }
         }
 
@@ -416,6 +420,7 @@
 
             .service-mini-card {
                 min-height: 200px;
+                /* REDUZIDO de 260px para 200px */
                 aspect-ratio: 3/4;
             }
         }
@@ -429,6 +434,7 @@
 
             .service-mini-card {
                 min-height: 210px;
+                /* REDUZIDO de 260px para 210px */
                 aspect-ratio: auto;
             }
 
@@ -475,6 +481,7 @@
 
             .service-mini-card {
                 min-height: 180px;
+                /* REDUZIDO de 220px para 180px */
             }
 
             .service-mini-card__front,
@@ -559,6 +566,7 @@
 
             .service-mini-card {
                 min-height: 220px;
+                /* REDUZIDO de 280px para 220px */
                 aspect-ratio: auto;
                 width: 100%;
             }
@@ -928,9 +936,10 @@
                 <button class="services-filter__btn" data-filter="viaturas">Viaturas</button>
                 <button class="services-filter__btn" data-filter="colchoes">Colchões</button>
                 <button class="services-filter__btn" data-filter="cadeiras">Cadeiras</button>
-                <button class="services-filter__btn" data-filter="outros">Outros</button>
             </div>
         </div>
+
+
 
         <!-- CATEGORIA: SOFÁS (NAPA E TECIDO) -->
         <section id="sofas" class="services-category" data-category="sofas">
@@ -1577,104 +1586,6 @@
             </div>
         </section>
 
-        <!-- CATEGORIA: OUTROS SERVIÇOS (FUMIGAÇÃO, DESINFECÇÃO, LAVAGEM DE PISO) -->
-        <section id="outros" class="services-category" data-category="outros">
-            <div class="container">
-                <div class="services-category__header" data-aos="fade-right">
-                    <div class="services-category__icon">
-                        <i class="fas fa-biohazard"></i>
-                    </div>
-                    <h2 class="services-category__title">
-                        OUTROS SERVIÇOS
-                        <span>Fumigação • Desinfecção • Lavagem de Piso</span>
-                    </h2>
-                </div>
-
-                <div class="services-grid-small">
-                    <!-- Fumigação -->
-                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="service-mini-card__front">
-                            <i class="fas fa-spray-can"></i>
-                            <h4>Fumigação</h4>
-                            <div class="price consulta">
-                                <i class="fas fa-phone-alt"></i> Sob Consulta
-                            </div>
-                             <div class="price">25.000 Kz</div>
-                            <p>Eliminação de Pragas</p>
-                        </div>
-                        <div class="service-mini-card__back">
-                            <i class="fab fa-whatsapp"></i>
-                            <h4>Solicitar Orçamento</h4>
-                            <p>Fumigação</p>
-                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Serviço de Fumigação" target="_blank" class="btn-whatsapp-small">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Desinfecção -->
-                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="150">
-                        <div class="service-mini-card__front">
-                            <i class="fas fa-pump-medical"></i>
-                            <h4>Desinfecção</h4>
-                            <div class="price consulta">
-                                <i class="fas fa-phone-alt"></i> Sob Consulta
-                            </div>
-                            <p>Eliminação de Bactérias</p>
-                        </div>
-                        <div class="service-mini-card__back">
-                            <i class="fab fa-whatsapp"></i>
-                            <h4>Solicitar Orçamento</h4>
-                            <p>Desinfecção</p>
-                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Serviço de Desinfecção" target="_blank" class="btn-whatsapp-small">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Lavagem de Piso -->
-                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="service-mini-card__front">
-                            <i class="fas fa-broom"></i>
-                            <h4>Lavagem de Piso</h4>
-                            <div class="price consulta">
-                                <i class="fas fa-phone-alt"></i> Sob Consulta
-                            </div>
-                            <p>Cerâmica, Mármore, Madeira</p>
-                        </div>
-                        <div class="service-mini-card__back">
-                            <i class="fab fa-whatsapp"></i>
-                            <h4>Solicitar Orçamento</h4>
-                            <p>Lavagem de Piso</p>
-                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Lavagem de Piso" target="_blank" class="btn-whatsapp-small">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Higienização de Ar Condicionado -->
-                    <div class="service-mini-card" data-aos="zoom-in" data-aos-delay="250">
-                        <div class="service-mini-card__front">
-                            <i class="fas fa-wind"></i>
-                            <h4>Ar Condicionado</h4>
-                            <div class="price consulta">
-                                <i class="fas fa-phone-alt"></i> Sob Consulta
-                            </div>
-                            <p>Higienização</p>
-                        </div>
-                        <div class="service-mini-card__back">
-                            <i class="fab fa-whatsapp"></i>
-                            <h4>Solicitar Orçamento</h4>
-                            <p>Higienização de Ar Condicionado</p>
-                            <a href="https://wa.me/244945543959?text=Olá! Gostaria de um orçamento para Higienização de Ar Condicionado" target="_blank" class="btn-whatsapp-small">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- PROMOÇÃO ESPECIAL -->
         <section class="promo-banner">
             <div class="container">
@@ -1691,7 +1602,6 @@
                 </div>
             </div>
         </section>
-        
         <!-- BARRA DE CONTATO RÁPIDA -->
         <div class="services-contact-bar">
             <div class="container">
@@ -1747,7 +1657,7 @@
                         <li><a href="servicos.html#colchoes">Colchões</a></li>
                         <li><a href="servicos.html#tapetes">Tapetes & Cortinas</a></li>
                         <li><a href="servicos.html#viaturas">Interior de Viaturas</a></li>
-                        <li><a href="servicos.html#outros">Fumigação & Desinfecção</a></li>
+                        <li><a href="#">Limpeza Pós Obra</a></li>
                     </ul>
                 </div>
 
